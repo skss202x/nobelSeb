@@ -37,83 +37,51 @@ const data = [
 ];
 
 
-
-
-
 // --------------------------
-// 2️⃣ Group laureates by year
+// Render by year
 // --------------------------
-const groupedByYear = {};
-
-data.forEach(laureate => {
-    if (!groupedByYear[laureate.year]) {
-        groupedByYear[laureate.year] = [];
-    }
-    groupedByYear[laureate.year].push(laureate);
-});
-
-// --------------------------
-// 3️⃣ Render the wall (one row per year)
-// --------------------------
-const wall = document.getElementById("wall");
-
-Object.keys(groupedByYear)
-    .sort() // ensures years appear in order
+Object.keys(grouped)
+    .sort()
     .forEach(year => {
-        // Year row container
-        const row = document.createElement("div");
-        row.classList.add("year-row");
+        const section = document.createElement("section");
+        section.className = "year-section";
 
-        // Optional year label
-        const yearLabel = document.createElement("h2");
-        yearLabel.classList.add("year-label");
-        yearLabel.textContent = year;
-        row.appendChild(yearLabel);
+        const label = document.createElement("h2");
+        label.className = "year-label";
+        label.textContent = year;
 
-        // Cards container
-        const cardsContainer = document.createElement("div");
-        cardsContainer.classList.add("year-cards");
+        const cards = document.createElement("div");
+        cards.className = "year-cards";
 
-        groupedByYear[year].forEach((laureate, index) => {
-            const uniqueId = `${year}-${index}`;
+        grouped[year].forEach((l, i) => {
+            const id = `${year}-${i}`;
 
             const card = document.createElement("div");
-            card.classList.add("laureate");
-
+            card.className = "laureate";
             card.innerHTML = `
-                <img src="${laureate.image}" alt="${laureate.name}" id="img-${uniqueId}">
-                <p class="name" id="name-${uniqueId}">${laureate.name}</p>
-                <p class="year" id="year-${uniqueId}">${laureate.year}</p>
-                <p class="reason" id="reason-${uniqueId}">${laureate.reason}</p>
-                <p class="hook" id="hook-${uniqueId}">${laureate.hook}</p>
+                <img src="${l.image}" alt="${l.name}" id="img-${id}">
+                <p class="name" id="name-${id}">${l.name}</p>
+                <p class="year" id="year-${id}">${l.year}</p>
+                <p class="reason" id="reason-${id}">${l.reason}</p>
+                <p class="hook" id="hook-${id}">${l.hook}</p>
             `;
 
-            cardsContainer.appendChild(card);
+            cards.appendChild(card);
 
-            // Elements
-            const imgEl = card.querySelector(`#img-${uniqueId}`);
-            const nameEl = card.querySelector(`#name-${uniqueId}`);
-            const yearEl = card.querySelector(`#year-${uniqueId}`);
-            const reasonEl = card.querySelector(`#reason-${uniqueId}`);
-            const hookEl = card.querySelector(`#hook-${uniqueId}`);
+            const img = card.querySelector("img");
+            const name = card.querySelector(".name");
+            const yearEl = card.querySelector(".year");
+            const reason = card.querySelector(".reason");
+            const hook = card.querySelector(".hook");
 
-            // Hide text initially
-            [nameEl, yearEl, reasonEl, hookEl].forEach(el => {
-                el.style.opacity = 0;
-                el.style.transition = "opacity 0.4s ease";
-            });
-
-            function fadeIn(el) {
-                el.style.opacity = 1;
-            }
-
-            // Click sequence
-            imgEl.addEventListener("click", () => fadeIn(nameEl));
-            nameEl.addEventListener("click", () => fadeIn(yearEl));
-            yearEl.addEventListener("click", () => fadeIn(reasonEl));
-            reasonEl.addEventListener("click", () => fadeIn(hookEl));
+            img.onclick = () => name.classList.add("visible");
+            name.onclick = () => yearEl.classList.add("visible");
+            yearEl.onclick = () => reason.classList.add("visible");
+            reason.onclick = () => hook.classList.add("visible");
         });
 
-        row.appendChild(cardsContainer);
-        wall.appendChild(row);
+        section.appendChild(label);
+        section.appendChild(cards);
+        wall.appendChild(section);
     });
+
