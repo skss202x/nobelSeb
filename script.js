@@ -127,4 +127,101 @@ const data = [
     },
     {
         name: "Esther Duflo",
-        image: "https://upload.wikimedi
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Esther_Duflo.jpg",
+        year: "2019",
+        hook: "Duflo does field experiments.",
+        reason: "Esther Duflo pioneered field experiments in development economics, focusing on education, health, and poverty interventions."
+    },
+    {
+        name: "Michael Kremer",
+        image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Michael_Kremer.jpg",
+        year: "2019",
+        hook: "Kremer creates scalable experiments.",
+        reason: "Michael Kremer contributed to experimental development economics and studied innovation incentives in low-income countries."
+    },
+    {
+        name: "Paul R. Milgrom",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Paul_Milgrom.jpg",
+        year: "2020",
+        hook: "Milgrom makes auctions smarter.",
+        reason: "Paul Milgrom improved auction theory and designed auction formats used in spectrum sales and other markets worldwide."
+    },
+    {
+        name: "Robert B. Wilson",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Robert_Wilson_economist.jpg",
+        year: "2020",
+        hook: "Wilson warns about information gaps.",
+        reason: "Robert Wilson analyzed auctions under asymmetric information, laying the foundation for modern auction theory."
+    },
+    {
+        name: "David Card",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/62/David_Card.jpg",
+        year: "2021",
+        hook: "Card pulls natural experiments.",
+        reason: "David Card used natural experiments to study labor markets, reshaping understanding of minimum wages and immigration."
+    },
+    {
+        name: "Joshua D. Angrist",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Joshua_D._Angrist.jpg",
+        year: "2021",
+        hook: "Angrist enforces causal discipline.",
+        reason: "Joshua Angrist advanced instrumental variable methods for causal inference in applied economics."
+    },
+    {
+        name: "Guido W. Imbens",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Guido_Imbens.jpg",
+        year: "2021",
+        hook: "Imbens improves treatment effects.",
+        reason: "Guido Imbens developed statistical frameworks for estimating causal relationships in observational data."
+    },
+    {
+        name: "Ben S. Bernanke",
+        image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Ben_Bernanke_official.jpg",
+        year: "2022",
+        hook: "Bernanke studies financial collapse.",
+        reason: "Ben Bernanke analyzed how bank failures amplify economic downturns and why financial crises cause severe damage."
+    },
+    {
+        name: "Douglas W. Diamond",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Douglas_Diamond.jpg",
+        year: "2022",
+        hook: "Diamond shows banks transform time.",
+        reason: "Douglas Diamond explained why banks exist by showing how they transform short-term deposits into long-term loans."
+    },
+    {
+        name: "Philip H. Dybvig",
+        image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Philip_Dybvig.jpg",
+        year: "2022",
+        hook: "Dybvig explains bank runs.",
+        reason: "Philip Dybvig co-developed models explaining how bank runs can occur and why deposit insurance prevents them."
+    },
+    {
+        name: "Claudia Goldin",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Claudia_Goldin.jpg",
+        year: "2023",
+        hook: "Goldin traces women’s work over time.",
+        reason: "Claudia Goldin documented the historical evolution of women’s labor market outcomes, explaining gender wage gaps and participation trends."
+    },
+    {
+        name: "Daron Acemoglu",
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Daron_Acemoglu.jpg",
+        year: "2024",
+        hook: "Ace institutions shape prosperity.",
+        reason: "Daron Acemoglu showed how inclusive institutions drive long-run growth while extractive institutions hinder development."
+    },
+    {
+        name: "Simon Johnson",
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Simon_Johnson_economist.jpg",
+        year: "2024",
+        hook: "Johnson studies elite power.",
+        reason: "Simon Johnson analyzed how political and economic elites shape institutions and development outcomes."
+    },
+    {
+        name: "James A. Robinson",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/0d/James_A._Robinson.jpg",
+        year: "2024",
+        hook: "Robinson maps roads to prosperity.",
+        reason: "James Robinson used historical evidence to show how political institutions determine long-run economic trajectories."
+    }
+];
+
