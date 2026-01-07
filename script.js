@@ -1,3 +1,6 @@
+// --------------------------
+// 1️⃣ Nobel Prize Data
+// --------------------------
 const data = [
     {
         name: "Peter A. Diamond",
@@ -225,3 +228,50 @@ const data = [
     }
 ];
 
+// --------------------------
+// 2️⃣ Render Table Rows
+// --------------------------
+const tableBody = document.querySelector("#quiz-table tbody");
+
+data.forEach((laureate, index) => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>
+            <div class="laureate">
+                <img src="${laureate.image}" alt="${laureate.name}" class="laureate-img">
+                <strong>${laureate.name}</strong>
+                <p><em>${laureate.hook}</em></p>
+            </div>
+        </td>
+        <td class="hidden" id="year-${index}">${laureate.year}</td>
+        <td class="hidden" id="reason-${index}">${laureate.reason}</td>
+        <td>
+            <button onclick="reveal(${index})">Reveal</button>
+        </td>
+    `;
+
+    tableBody.appendChild(row);
+});
+
+// --------------------------
+// 3️⃣ Reveal Function
+// --------------------------
+function reveal(index) {
+    document.getElementById(`year-${index}`).classList.remove("hidden");
+    document.getElementById(`reason-${index}`).classList.remove("hidden");
+}
+
+// --------------------------
+// 4️⃣ Optional: Reveal/Hide All
+// --------------------------
+function revealAll() {
+    data.forEach((_, index) => reveal(index));
+}
+
+function hideAll() {
+    data.forEach((_, index) => {
+        document.getElementById(`year-${index}`).classList.add("hidden");
+        document.getElementById(`reason-${index}`).classList.add("hidden");
+    });
+}
