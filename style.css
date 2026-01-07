@@ -1,17 +1,17 @@
-/* Reset some default styles */
+/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
     background: #f4f4f9;
     color: #333;
-    min-height: 100vh;
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 2rem 1rem;
@@ -26,105 +26,85 @@ header h1 {
 
 header p {
     font-size: 1rem;
-    color: #ecf0f1;
+    opacity: 0.9;
 }
 
-
-/* Each year container */
+/* Year section */
 .year-section {
-    margin-bottom: 40px;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+}
+
+.year-label {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* 🔒 LOCK: max 3 images per row */
+.year-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Card */
+.laureate {
     text-align: center;
 }
 
-/* Optional year label */
-.year-label {
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-    color: #333;
-}
-
-/* Cards for that year */
-.year-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-
-/* Each laureate card */
-.laureate {
-    text-align: center; /* center all text under the image */
-    max-width: 100%; /* responsive */
-}
-
-/* Images */
+/* Image */
 .laureate img {
     width: 100%;
-    max-width: 250px; /* adjust max width for mobile-friendly design */
-    height: auto;
-    border-radius: 10px;
+    max-width: 250px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .laureate img:hover {
     transform: scale(1.05);
 }
 
-/* Text under image */
+/* Text */
 .laureate p {
-    margin: 5px 0;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.3;
+    margin-top: 6px;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
-/* Initially hidden text */
-.laureate .name,
-.laureate .year,
-.laureate .reason,
-.laureate .hook {
+/* Hidden by default */
+.name,
+.year,
+.reason,
+.hook {
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
 }
 
-/* Visible text */
-.laureate .name.visible,
-.laureate .year.visible,
-.laureate .reason.visible,
-.laureate .hook.visible {
-    opacity: 1;
-}
-
-/* Hook styling (slightly different to highlight) */
-.laureate .hook {
-    font-style: italic;
-    color: #555;
-}
-
-
-
-
-
-
-/* Fade-in visible class */
+/* Revealed */
 .visible {
     opacity: 1;
 }
 
-/* Responsive text sizes */
+/* Hook styling */
+.hook {
+    font-style: italic;
+    color: #555;
+}
+
+/* 📱 Mobile: 2 per row */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-    header p {
-        font-size: 0.9rem;
-    }
-    .wall {
-        gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    .year-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
+/* 📱 Small phones: 1 per row */
+@media (max-width: 480px) {
+    .year-cards {
+        grid-template-columns: 1fr;
+    }
+}
