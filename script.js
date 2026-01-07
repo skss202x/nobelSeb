@@ -37,49 +37,40 @@ const data = [
 ];
 
 
-// Wait until DOM is ready
-document.addEventListener("DOMContentLoaded", () => {
 
-    const tableBody = document.querySelector("#quiz-table tbody");
+// --------------------------
+// 2️⃣ Render the wall
+// --------------------------
+const wall = document.getElementById('wall');
 
-    data.forEach((laureate, index) => {
-        const row = document.createElement("tr");
+data.forEach((laureate, index) => {
+    const card = document.createElement('div');
+    card.classList.add('laureate');
 
-        row.innerHTML = `
-            <td>
-                <div class="laureate">
-                    <img src="${laureate.image}" alt="${laureate.name}" class="laureate-img" id="img-${index}">
-                    <p class="hidden fade name" id="name-${index}">${laureate.name}</p>
-                    <p class="hidden fade year" id="year-${index}">${laureate.year}</p>
-                    <p class="hidden fade reason" id="reason-${index}">${laureate.reason}</p>
-                </div>
-            </td>
-        `;
+    card.innerHTML = `
+        <img src="${laureate.image}" alt="${laureate.name}" id="img-${index}">
+        <p class="name" id="name-${index}">${laureate.name}</p>
+        <p class="year" id="year-${index}">${laureate.year}</p>
+        <p class="reason" id="reason-${index}">${laureate.reason}</p>
+    `;
 
-        tableBody.appendChild(row);
+    wall.appendChild(card);
 
-        // Elements
-        const imgEl = document.getElementById(`img-${index}`);
-        const nameEl = document.getElementById(`name-${index}`);
-        const yearEl = document.getElementById(`year-${index}`);
-        const reasonEl = document.getElementById(`reason-${index}`);
+    // Elements
+    const imgEl = document.getElementById(`img-${index}`);
+    const nameEl = document.getElementById(`name-${index}`);
+    const yearEl = document.getElementById(`year-${index}`);
+    const reasonEl = document.getElementById(`reason-${index}`);
 
-        // Smooth fade-in function
-        function fadeIn(el) {
-            el.classList.remove("hidden");
-            el.style.opacity = 0;
-            el.style.transition = "opacity 0.5s";
-            requestAnimationFrame(() => {
-                el.style.opacity = 1;
-            });
-        }
+    // Initially hide name, year, reason
+    [nameEl, yearEl, reasonEl].forEach(el => el.style.opacity = 0);
 
-        // Click handlers
-        imgEl.addEventListener("click", () => fadeIn(nameEl));
-        nameEl.addEventListener("click", () => fadeIn(yearEl));
-        yearEl.addEventListener("click", () => fadeIn(reasonEl));
-    });
+    function fadeIn(el) {
+        el.style.opacity = 1;
+    }
+
+    imgEl.addEventListener('click', () => fadeIn(nameEl));
+    nameEl.addEventListener('click', () => fadeIn(yearEl));
+    yearEl.addEventListener('click', () => fadeIn(reasonEl));
 });
-
-
 
