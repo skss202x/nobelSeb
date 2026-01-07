@@ -1,73 +1,88 @@
-/* General table styling */
-#quiz-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-#quiz-table td {
-    padding: 10px;
+body {
+    background: #f4f4f9;
+    color: #333;
+    min-height: 100vh;
+}
+
+header {
     text-align: center;
+    padding: 2rem 1rem;
+    background: #2c3e50;
+    color: white;
 }
 
-/* Laureate container */
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    color: #ecf0f1;
+}
+
+/* Wall grid */
+.wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Laureate card */
 .laureate {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Image styling */
-.laureate-img {
-    width: 150px; /* bigger on desktop */
-    height: auto;
-    border-radius: 10px;
+    text-align: center;
     cursor: pointer;
     transition: transform 0.3s;
-    margin-bottom: 10px;
 }
 
-.laureate-img:hover {
+.laureate:hover {
     transform: scale(1.05);
 }
 
-/* Text styling */
+.laureate img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
 .laureate p {
-    margin: 5px 0;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
     cursor: pointer;
-}
-
-/* Hidden by default */
-.hidden {
-    display: none;
-}
-
-/* Fade animation */
-.fade {
     opacity: 0;
     transition: opacity 0.5s;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .laureate-img {
-        width: 100px;
-    }
-
-    #quiz-table td {
-        padding: 5px;
-    }
-
-    .laureate p {
-        font-size: 14px;
-    }
+/* Fade-in visible class */
+.visible {
+    opacity: 1;
 }
 
-@media (max-width: 480px) {
-    .laureate-img {
-        width: 80px;
+/* Responsive text sizes */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
     }
-
-    .laureate p {
-        font-size: 12px;
+    header p {
+        font-size: 0.9rem;
+    }
+    .wall {
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 }
