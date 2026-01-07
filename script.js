@@ -38,41 +38,82 @@ const data = [
 
 
 
+
+
 // --------------------------
-// 2️⃣ Render the wall
+// 2️⃣ Group laureates by year
 // --------------------------
-const wall = document.getElementById('wall');
+const groupedByYear = {};
 
-data.forEach((laureate, index) => {
-    const card = document.createElement('div');
-    card.classList.add('laureate');
-
-    card.innerHTML = `
-        <img src="${laureate.image}" alt="${laureate.name}" id="img-${index}">
-        <p class="name" id="name-${index}">${laureate.name}</p>
-        <p class="year" id="year-${index}">${laureate.year}</p>
-        <p class="reason" id="reason-${index}">${laureate.reason}</p>
-        <p class="hook" id="hook-${index}">${laureate.hook}</p>
-    `;
-
-    wall.appendChild(card);
-
-    // Elements
-    const imgEl = document.getElementById(`img-${index}`);
-    const nameEl = document.getElementById(`name-${index}`);
-    const yearEl = document.getElementById(`year-${index}`);
-    const reasonEl = document.getElementById(`reason-${index}`);
-    const hookEl = document.getElementById(`hook-${index}`);
-
-    // Initially hide name, year, reason, hook
-    [nameEl, yearEl, reasonEl, hookEl].forEach(el => el.style.opacity = 0);
-
-    function fadeIn(el) {
-        el.style.opacity = 1;
+data.forEach(laureate => {
+    if (!groupedByYear[laureate.year]) {
+        groupedByYear[laureate.year] = [];
     }
-
-    imgEl.addEventListener('click', () => fadeIn(nameEl));
-    nameEl.addEventListener('click', () => fadeIn(yearEl));
-    yearEl.addEventListener('click', () => fadeIn(reasonEl));
-    reasonEl.addEventListener('click', () => fadeIn(hookEl)); // NEW: show hook after reason
+    groupedByYear[laureate.year].push(laureate);
 });
+
+// --------------------------
+// 3️⃣ Render the wall (one row per year)
+// --------------------------
+const wall = document.getElementById("wall");
+
+Object.keys(groupedByYear)
+    .sort() // ensures years appear in order
+    .forEach(year => {
+        // Year row container
+        const row = document.createElement("div");
+        row.classList.add("year-row");
+
+        // Optional year label
+        const yearLabel = document.createElement("h2");
+        yearLabel.classList.add("year-label");
+        yearLabel.textContent = year;
+        row.appendChild(yearLabel);
+
+        // Cards container
+        const cardsContainer = document.createElement("div");
+        cardsContainer.classList.add("year-cards");
+
+        groupedByYear[year].forEach((laureate, index) => {
+            const uniqueId = `${year}-${index}`;
+
+            const card = document.createElement("div");
+            card.classList.add("laureate");
+
+            card.innerHTML = `
+                <img src="${laureate.image}" alt="${laureate.name}" id="img-${uniqueId}">
+                <p class="name" id="name-${uniqueId}">${laureate.name}</p>
+                <p class="year" id="year-${uniqueId}">${laureate.year}</p>
+                <p class="reason" id="reason-${uniqueId}">${laureate.reason}</p>
+                <p class="hook" id="hook-${uniqueId}">${laureate.hook}</p>
+            `;
+
+            cardsContainer.appendChild(card);
+
+            // Elements
+            const imgEl = card.querySelector(`#img-${uniqueId}`);
+            const nameEl = card.querySelector(`#name-${uniqueId}`);
+            const yearEl = card.querySelector(`#year-${uniqueId}`);
+            const reasonEl = card.querySelector(`#reason-${uniqueId}`);
+            const hookEl = card.querySelector(`#hook-${uniqueId}`);
+
+            // Hide text initially
+            [nameEl, yearEl, reasonEl, hookEl].forEach(el => {
+                el.style.opacity = 0;
+                el.style.transition = "opacity 0.4s ease";
+            });
+
+            function fadeIn(el) {
+                el.style.opacity = 1;
+            }
+
+            // Click sequence
+            imgEl.addEventListener("click", () => fadeIn(nameEl));
+            nameEl.addEventListener("click", () => fadeIn(yearEl));
+            yearEl.addEventListener("click", () => fadeIn(reasonEl));
+            reasonEl.addEventListener("click", () => fadeIn(hookEl));
+        });
+
+        row.appendChild(cardsContainer);
+        wall.appendChild(row);
+    });
