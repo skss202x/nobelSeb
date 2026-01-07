@@ -30,15 +30,27 @@ header p {
 }
 
 
-/* -------------------------- */
-/* Wall container */
-#wall {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 images per row */
-    gap: 20px; /* spacing between cards */
-    justify-items: center;
-    padding: 20px;
+/* Each year container */
+.year-section {
+    margin-bottom: 40px;
+    text-align: center;
 }
+
+/* Optional year label */
+.year-label {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Cards for that year */
+.year-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 
 /* Each laureate card */
 .laureate {
