@@ -1,64 +1,78 @@
-/* Reset */
+/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-    background: #f4f4f9;
-    color: #333;
+    background: #f6f7fb;
+    color: #222;
 }
 
-/* Header */
+/* HEADER */
 header {
     text-align: center;
     padding: 2rem 1rem;
-    background: #2c3e50;
+    background: #1f2937;
     color: white;
 }
 
 header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
 }
 
 header p {
-    font-size: 1rem;
-    opacity: 0.9;
+    opacity: 0.85;
+    margin-top: 0.5rem;
 }
 
-/* Year section */
+/* YEAR SECTION */
 .year-section {
-    margin: 40px auto;
-    max-width: 1000px;
+    margin: 2.5rem auto;
+    max-width: 1100px;
     padding: 0 1rem;
 }
 
 .year-label {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
     text-align: center;
-    color: #2c3e50;
 }
 
-/* 🔒 LOCK: max 3 images per row */
+/* CARD GRID (MAX 3 PER ROW) */
 .year-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 1.2rem;
 }
 
-/* Card */
+/* MOBILE */
+@media (max-width: 900px) {
+    .year-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .year-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* LAUREATE CARD */
 .laureate {
+    background: white;
+    border-radius: 14px;
+    padding: 1rem;
     text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* Image */
+/* IMAGE */
 .laureate img {
     width: 100%;
-    max-width: 250px;
+    max-width: 260px;
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -68,43 +82,26 @@ header p {
     transform: scale(1.05);
 }
 
-/* Text */
+/* TEXT */
 .laureate p {
-    margin-top: 6px;
-    font-size: 0.95rem;
+    margin-top: 0.6rem;
     line-height: 1.4;
 }
 
-/* Hidden by default */
+/* HIDDEN BY DEFAULT */
 .name,
-.year,
 .reason,
 .hook {
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    display: none;
 }
 
-/* Revealed */
-.visible {
-    opacity: 1;
-}
-
-/* Hook styling */
-.hook {
-    font-style: italic;
-    color: #555;
-}
-
-/* 📱 Mobile: 2 per row */
-@media (max-width: 768px) {
-    .year-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* 📱 Small phones: 1 per row */
-@media (max-width: 480px) {
-    .year-cards {
-        grid-template-columns: 1fr;
-    }
+/* YEAR TEXTBOX */
+.year-textbox {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: #eef2ff;
+    border-left: 6px solid #4f46e5;
+    border-radius: 8px;
+    font-size: 0.95rem;
 }
