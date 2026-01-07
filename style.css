@@ -33,7 +33,7 @@ header p {
 /* Wall grid */
 .wall {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* maximum 3 images per row */
+    grid-template-columns: repeat(2, 1fr); /* maximum 3 images per row */
     gap: 15px;
     padding: 1rem;
     max-width: 1200px;
