@@ -37,6 +37,8 @@ const data = [
 ];
 
 
+// Wait until DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
 
     const tableBody = document.querySelector("#quiz-table tbody");
 
@@ -62,14 +64,22 @@ const data = [
         const yearEl = document.getElementById(`year-${index}`);
         const reasonEl = document.getElementById(`reason-${index}`);
 
+        // Smooth fade-in function
         function fadeIn(el) {
             el.classList.remove("hidden");
-            el.classList.add("visible");
+            el.style.opacity = 0;
+            el.style.transition = "opacity 0.5s";
+            requestAnimationFrame(() => {
+                el.style.opacity = 1;
+            });
         }
 
+        // Click handlers
         imgEl.addEventListener("click", () => fadeIn(nameEl));
         nameEl.addEventListener("click", () => fadeIn(yearEl));
         yearEl.addEventListener("click", () => fadeIn(reasonEl));
     });
-
 });
+
+
+
