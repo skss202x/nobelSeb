@@ -3,193 +3,128 @@ const data = [
         name: "Peter A. Diamond",
         image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Peter_Diamond_%28economist%29.jpg",
         year: "2010",
-        reason: "For his analysis of markets with search frictions, especially his work on how unemployment, job vacancies, and wage formation are affected when it takes time for buyers and sellers to find each other."
+        hook: "A diamond takes time to find — just like a job.",
+        reason: "Peter Diamond developed foundational models of labor markets where search is costly and time-consuming. His work showed that unemployment can persist even when jobs are available because workers and firms must search for suitable matches. These models explain wage dispersion, job vacancies, and the role of policy in markets with search frictions."
     },
     {
         name: "Dale T. Mortensen",
         image: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Dale_T._Mortensen.jpg",
         year: "2010",
-        reason: "For his fundamental contributions to the theory of search and matching in labor markets, explaining how individual decisions interact with market frictions to shape unemployment and job creation."
+        hook: "Mortensen = jobs are constantly being created and destroyed.",
+        reason: "Dale Mortensen analyzed job creation and destruction and the continuous flows of workers between employment and unemployment. His work showed how labor markets are dynamic rather than static and clarified how hiring incentives and unemployment benefits affect employment outcomes."
     },
     {
         name: "Christopher A. Pissarides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Christopher_Pissarides.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Christopher_Pissarides.jpg",
         year: "2010",
-        reason: "For his development of equilibrium models of unemployment that integrate job search, wage bargaining, and labor market policy into a coherent analytical framework."
+        hook: "Pissarides pairs workers with jobs.",
+        reason: "Christopher Pissarides developed equilibrium models of unemployment combining job search, matching efficiency, and wage bargaining. His work demonstrated how labor market institutions influence unemployment rates and became central to modern labor economics through the DMP model."
     },
     {
         name: "Thomas J. Sargent",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Thomas_Sargent.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Thomas_J._Sargent.jpg",
         year: "2011",
-        reason: "For his empirical research on cause and effect in the macroeconomy, particularly how governments and households form expectations about economic policy and how these expectations influence inflation and employment."
+        hook: "The sergeant commands expectations.",
+        reason: "Thomas Sargent studied how expectations about government policy affect inflation, employment, and economic stability. His work emphasized credibility and showed why policies fail when people anticipate their long-term consequences."
     },
     {
         name: "Christopher A. Sims",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Christopher_Sims.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Christopher_Sims.jpg",
         year: "2011",
-        reason: "For his methodological contributions to macroeconomics, especially the development of vector autoregression techniques used to analyze the effects of economic policy shocks."
+        hook: "SIMS = simulations of the economy.",
+        reason: "Christopher Sims developed vector autoregression (VAR) methods that allow economists to analyze how economies respond to policy shocks using data rather than restrictive assumptions. VARs are now standard tools in macroeconomic analysis."
     },
     {
         name: "Alvin E. Roth",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Alvin_E._Roth.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Alvin_E._Roth.jpg",
         year: "2012",
-        reason: "For the theory of stable allocations and the practice of market design, including applications to matching markets such as school choice systems and kidney exchange programs."
+        hook: "Roth wrote the rules for markets.",
+        reason: "Alvin Roth applied matching theory to real-world markets such as school admissions and kidney exchanges. His work showed how carefully designed rules improve outcomes when prices cannot efficiently allocate resources."
     },
     {
         name: "Lloyd S. Shapley",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Lloyd_Shapley.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Lloyd_Shapley.jpg",
         year: "2012",
-        reason: "For foundational theoretical contributions to cooperative game theory and matching theory, providing the mathematical basis for stable matching and fair allocation mechanisms."
+        hook: "Shapley shapes fair outcomes.",
+        reason: "Lloyd Shapley made foundational contributions to game theory and matching theory, including stable matching and the Shapley value. His work provided the mathematical foundation for modern market design."
     },
     {
         name: "Eugene F. Fama",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Eugene_Fama.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Eugene_Fama.jpg",
         year: "2013",
-        reason: "For his empirical analysis of asset prices, particularly the efficient market hypothesis, demonstrating how asset prices reflect available information."
+        hook: "Fama says markets already know.",
+        reason: "Eugene Fama demonstrated that asset prices reflect available information, forming the efficient market hypothesis. His work reshaped finance, investment strategies, and portfolio management."
     },
     {
         name: "Lars Peter Hansen",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Lars_Hansen.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Lars_Peter_Hansen.jpg",
         year: "2013",
-        reason: "For developing econometric methods that allow researchers to test theories of asset pricing and measure risk in financial markets."
+        hook: "Hansen handles risk mathematically.",
+        reason: "Lars Peter Hansen developed econometric methods such as the generalized method of moments, allowing researchers to test asset pricing models and measure risk using real data."
     },
     {
         name: "Robert J. Shiller",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Robert_Shiller.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/58/Robert_Shiller.jpg",
         year: "2013",
-        reason: "For his analysis of asset price volatility, behavioral finance, and the role of psychological factors in financial bubbles and market instability."
+        hook: "Shiller chills markets with bubbles.",
+        reason: "Robert Shiller showed that asset prices fluctuate more than fundamentals alone can explain. His work emphasized psychological factors, bubbles, and market instability, founding behavioral finance."
     },
     {
         name: "Jean Tirole",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Jean_Tirole.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Jean_Tirole.jpg",
         year: "2014",
-        reason: "For his analysis of market power and regulation, particularly how governments can design effective policies for industries dominated by a few powerful firms."
+        hook: "Tirole is the referee of powerful firms.",
+        reason: "Jean Tirole analyzed markets dominated by large firms and developed tools for effective regulation. His work is central to competition policy, antitrust law, and regulatory economics."
     },
     {
         name: "Angus Deaton",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Angus_Deaton.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/93/Angus_Deaton.jpg",
         year: "2015",
-        reason: "For his analysis of consumption, poverty, and welfare, advancing the understanding of how individuals allocate spending and how living standards are measured across countries."
+        hook: "Deaton studies how people live.",
+        reason: "Angus Deaton advanced the study of consumption, poverty, and welfare measurement. He improved methods for using household data and showed how consumption reflects living standards better than income."
     },
     {
         name: "Oliver Hart",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Oliver_Hart.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Oliver_Hart.jpg",
         year: "2016",
-        reason: "For his contributions to contract theory, explaining how incomplete contracts shape the structure of firms, incentives, and organizational decision-making."
+        hook: "Contracts are written from the heart — but incomplete.",
+        reason: "Oliver Hart developed contract theory explaining how incomplete contracts shape firm boundaries, ownership, and incentives. His work informs corporate governance and public-private partnerships."
     },
     {
         name: "Bengt Holmström",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Bengt_Holmstrom.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Bengt_Holmstrom.jpg",
         year: "2016",
-        reason: "For his foundational work in contract theory, particularly on incentive design, moral hazard, and the optimal structuring of compensation and performance evaluation."
+        hook: "Holmström holds incentives together.",
+        reason: "Bengt Holmström analyzed moral hazard and incentive design, explaining how compensation and performance measurement motivate behavior in organizations."
     },
     {
         name: "Richard H. Thaler",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Richard_Thaler.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/47/Richard_Thaler.jpg",
         year: "2017",
-        reason: "For his contributions to behavioral economics, incorporating psychological insights into economic analysis and challenging the assumption of fully rational decision-making."
+        hook: "Thaler nudges behavior.",
+        reason: "Richard Thaler integrated psychology into economics, identifying systematic biases in decision-making and introducing nudging as a policy tool."
     },
     {
         name: "William D. Nordhaus",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/William_Nordhaus.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/William_Nordhaus.jpg",
         year: "2018",
-        reason: "For integrating climate change into long-run macroeconomic analysis, developing models that assess the economic consequences of global warming and climate policy."
+        hook: "Nordhaus puts climate into growth models.",
+        reason: "William Nordhaus developed integrated assessment models linking economic growth and climate change, shaping climate policy analysis and carbon pricing."
     },
     {
         name: "Paul M. Romer",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Paul_Romer.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Paul_Romer.jpg",
         year: "2018",
-        reason: "For his work on endogenous growth theory, demonstrating how technological innovation and ideas drive long-term economic growth."
+        hook: "Romer shows ideas drive growth.",
+        reason: "Paul Romer developed endogenous growth theory, showing that innovation and ideas are central drivers of long-run economic growth."
     },
     {
         name: "Abhijit Banerjee",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Abhijit_Banerjee.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Abhijit_Banerjee.jpg",
         year: "2019",
-        reason: "For his experimental approach to alleviating global poverty, using randomized controlled trials to evaluate development policies."
+        hook: "Banerjee bans guessing — tests policies.",
+        reason: "Abhijit Banerjee used randomized controlled trials to evaluate development policies, making poverty reduction evidence-based."
     },
     {
         name: "Esther Duflo",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Esther_Duflo.jpg",
-        year: "2019",
-        reason: "For her pioneering use of field experiments to study poverty, education, health, and development interventions."
-    },
-    {
-        name: "Michael Kremer",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Michael_Kremer.jpg",
-        year: "2019",
-        reason: "For experimental research that transformed development economics into a data-driven, evidence-based discipline."
-    },
-    {
-        name: "Paul R. Milgrom",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Paul_Milgrom.jpg",
-        year: "2020",
-        reason: "For improvements to auction theory and the invention of new auction formats, widely used in spectrum auctions and other markets."
-    },
-    {
-        name: "Robert B. Wilson",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Robert_Wilson.jpg",
-        year: "2020",
-        reason: "For foundational work on auction theory, especially the analysis of bidding strategies under asymmetric information."
-    },
-    {
-        name: "David Card",
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/62/David_Card.jpg",
-        year: "2021",
-        reason: "For his empirical contributions to labor economics, particularly using natural experiments to study minimum wages, immigration, and education."
-    },
-    {
-        name: "Joshua D. Angrist",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Joshua_D._Angrist.jpg",
-        year: "2021",
-        reason: "For methodological contributions to causal inference, especially the use of instrumental variables in empirical economics."
-    },
-    {
-        name: "Guido W. Imbens",
-        image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Guido_Imbens.jpg",
-        year: "2021",
-        reason: "For advancing methods for estimating causal relationships in observational data, strengthening empirical economic analysis."
-    },
-    {
-        name: "Ben S. Bernanke",
-        image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Ben_Bernanke_official.jpg",
-        year: "2022",
-        reason: "For research on banks and financial crises, particularly how bank failures amplify economic downturns."
-    },
-    {
-        name: "Douglas W. Diamond",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Douglas_Diamond.jpg",
-        year: "2022",
-        reason: "For theoretical models explaining the role of banks in maturity transformation and financial stability."
-    },
-    {
-        name: "Philip H. Dybvig",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Philip_Dybvig.jpg",
-        year: "2022",
-        reason: "For developing models of bank runs and deposit insurance that explain systemic financial risk."
-    },
-    {
-        name: "Claudia Goldin",
-        image: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Claudia_Goldin.jpg",
-        year: "2023",
-        reason: "For advancing understanding of women's labor market outcomes, including gender wage gaps, labor force participation, and the role of education and family structure."
-    },
-    {
-        name: "Daron Acemoglu",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Daron_Acemoglu_2024.jpg",
-        year: "2024",
-        reason: "For research on how political and economic institutions shape long-run economic growth, inequality, and prosperity."
-    },
-    {
-        name: "Simon Johnson",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/Simon_Johnson.jpg",
-        year: "2024",
-        reason: "For contributions to the study of institutions, power structures, and their impact on economic development."
-    },
-    {
-        name: "James A. Robinson",
-        image: "https://upload.wikimedia.org/wikipedia/commons/…/James_A_Robinson.jpg",
-        year: "2024",
-        reason: "For empirical and historical research showing how inclusive institutions promote growth and why extractive institutions hinder development."
-    }
-];
-
+        image: "https://upload.wikimedi
