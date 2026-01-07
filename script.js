@@ -36,6 +36,7 @@ const data = [
     { name: "James A. Robinson", image: "./images/james_robinson.jpg", year: "2024", hook: "Robinson maps roads to prosperity.", reason: "James Robinson used historical evidence to show how political institutions determine long-run economic trajectories." }
 ];
 
+
 // --------------------------
 // 2️⃣ Render Table Rows
 // --------------------------
@@ -47,39 +48,36 @@ data.forEach((laureate, index) => {
     row.innerHTML = `
         <td>
             <div class="laureate">
-                <img src="${laureate.image}" alt="${laureate.name}" class="laureate-img">
-                <strong>${laureate.name}</strong>
-                <p><em>${laureate.hook}</em></p>
+                <img src="${laureate.image}" alt="${laureate.name}" class="laureate-img" id="img-${index}">
+                <p class="hidden fade name" id="name-${index}">${laureate.name}</p>
+                <p class="hidden fade year" id="year-${index}">${laureate.year}</p>
+                <p class="hidden fade reason" id="reason-${index}">${laureate.reason}</p>
             </div>
-        </td>
-        <td class="hidden" id="year-${index}">${laureate.year}</td>
-        <td class="hidden" id="reason-${index}">${laureate.reason}</td>
-        <td>
-            <button onclick="reveal(${index})">Reveal</button>
         </td>
     `;
 
     tableBody.appendChild(row);
+
+    // --------------------------
+    // 3️⃣ Add click events with fade-in
+    // --------------------------
+    const imgEl = document.getElementById(`img-${index}`);
+    const nameEl = document.getElementById(`name-${index}`);
+    const yearEl = document.getElementById(`year-${index}`);
+    const reasonEl = document.getElementById(`reason-${index}`);
+
+    function fadeIn(el) {
+        el.classList.remove("hidden");
+        el.style.opacity = 0;
+        el.style.transition = "opacity 0.5s";
+        requestAnimationFrame(() => {
+            el.style.opacity = 1;
+        });
+    }
+
+    imgEl.addEventListener("click", () => fadeIn(nameEl));
+    nameEl.addEventListener("click", () => fadeIn(yearEl));
+    yearEl.addEventListener("click", () => fadeIn(reasonEl));
 });
 
-// --------------------------
-// 3️⃣ Reveal Function
-// --------------------------
-function reveal(index) {
-    document.getElementById(`year-${index}`).classList.remove("hidden");
-    document.getElementById(`reason-${index}`).classList.remove("hidden");
-}
 
-// --------------------------
-// 4️⃣ Optional: Reveal/Hide All
-// --------------------------
-function revealAll() {
-    data.forEach((_, index) => reveal(index));
-}
-
-function hideAll() {
-    data.forEach((_, index) => {
-        document.getElementById(`year-${index}`).classList.add("hidden");
-        document.getElementById(`reason-${index}`).classList.add("hidden");
-    });
-}
