@@ -36,13 +36,38 @@ const data = [
     { name: "James A. Robinson", image: "./images/james_robinson.jpg", year: "2024", hook: "Robinson maps roads to prosperity.", reason: "James Robinson used historical evidence to show how political institutions determine long-run economic trajectories." }
 ];
 
+// --------------------------
+// 1️⃣ Nobel Prize Data (2010–2024)
+// --------------------------
+const data = [ /* KEEP YOUR DATA EXACTLY AS-IS */ ];
+
 
 // --------------------------
-// Render by year
+// 2️⃣ Get wall container
+// --------------------------
+const wall = document.getElementById("wall");
+
+
+// --------------------------
+// 3️⃣ Group data by year
+// --------------------------
+const grouped = {};
+
+data.forEach(l => {
+    if (!grouped[l.year]) {
+        grouped[l.year] = [];
+    }
+    grouped[l.year].push(l);
+});
+
+
+// --------------------------
+// 4️⃣ Render by year
 // --------------------------
 Object.keys(grouped)
     .sort()
     .forEach(year => {
+
         const section = document.createElement("section");
         section.className = "year-section";
 
@@ -54,19 +79,16 @@ Object.keys(grouped)
         cards.className = "year-cards";
 
         grouped[year].forEach((l, i) => {
-            const id = `${year}-${i}`;
-
             const card = document.createElement("div");
             card.className = "laureate";
-            card.innerHTML = `
-                <img src="${l.image}" alt="${l.name}" id="img-${id}">
-                <p class="name" id="name-${id}">${l.name}</p>
-                <p class="year" id="year-${id}">${l.year}</p>
-                <p class="reason" id="reason-${id}">${l.reason}</p>
-                <p class="hook" id="hook-${id}">${l.hook}</p>
-            `;
 
-            cards.appendChild(card);
+            card.innerHTML = `
+                <img src="${l.image}" alt="${l.name}">
+                <p class="name">${l.name}</p>
+                <p class="year">${l.year}</p>
+                <p class="reason">${l.reason}</p>
+                <p class="hook">${l.hook}</p>
+            `;
 
             const img = card.querySelector("img");
             const name = card.querySelector(".name");
@@ -74,14 +96,23 @@ Object.keys(grouped)
             const reason = card.querySelector(".reason");
             const hook = card.querySelector(".hook");
 
+            // initial state
+            [name, yearEl, reason, hook].forEach(el => el.classList.remove("visible"));
+
             img.onclick = () => name.classList.add("visible");
             name.onclick = () => yearEl.classList.add("visible");
             yearEl.onclick = () => reason.classList.add("visible");
             reason.onclick = () => hook.classList.add("visible");
+
+            cards.appendChild(card);
         });
 
         section.appendChild(label);
         section.appendChild(cards);
         wall.appendChild(section);
     });
+
+
+
+
 
