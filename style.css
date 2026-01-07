@@ -1,185 +1,95 @@
 /* --------------------------
-  1️⃣ General Page Styles
---------------------------- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f9;
-    color: #333;
-    margin: 0;
-    padding: 0 20px;
-    line-height: 1.6;
-}
-
-header, section, footer {
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #0d3b66;
-    margin-top: 20px;
-}
-
-h2 {
-    text-align: center;
-    font-weight: 400;
-    color: #0d3b66;
-    margin-bottom: 10px;
-}
-
-h3 {
-    color: #144d88;
-    margin-bottom: 10px;
-}
-
-.instructions, .progress p, footer p {
-    text-align: center;
-    font-size: 1rem;
-    color: #333;
-}
-
-/* --------------------------
-  2️⃣ Table Styles
+   General Table Styling
 --------------------------- */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 50px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
 }
 
 th, td {
-    padding: 15px 10px;
+    padding: 10px;
     text-align: left;
     vertical-align: top;
-}
-
-th {
-    background-color: #0d3b66;
-    color: #fff;
-}
-
-td {
     border-bottom: 1px solid #ddd;
 }
 
+#quiz-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
 /* --------------------------
-  3️⃣ Laureate Layout
+   Laureate Card Styling
 --------------------------- */
 .laureate {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
 }
 
 .laureate-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #0d3b66;
+    width: 200px;       /* bigger image */
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    margin-bottom: 10px;
 }
 
-.laureate strong {
-    display: block;
-    color: #0d3b66;
-    font-size: 1.1rem;
-}
-
-.laureate em {
-    display: block;
-    font-size: 0.9rem;
-    color: #555;
+.laureate-img:hover {
+    transform: scale(1.05);
 }
 
 /* --------------------------
-  4️⃣ Hidden Cells (if using reveal)
+   Hidden / Fade-In Elements
 --------------------------- */
 .hidden {
-    display: none;
+    display: none;      /* hidden by default */
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* --------------------------
-  5️⃣ Hover Effect for Rows
+   Text Styling
 --------------------------- */
-#quiz-table tbody tr:hover {
-    background-color: #eef4fb;
-    cursor: pointer;
-}
-
-/* --------------------------
-  6️⃣ Lists & Sections
---------------------------- */
-.challenge ol {
-    padding-left: 20px;
-}
-
-.challenge li {
-    margin-bottom: 8px;
-}
-
-/* --------------------------
-  7️⃣ Footer
---------------------------- */
-footer {
+.name, .year, .reason {
+    margin: 5px 0;
+    cursor: pointer;    /* indicate clickability */
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 16px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.year {
+    font-style: italic;
     color: #555;
-    margin-bottom: 30px;
+}
+
+.reason {
+    font-size: 14px;
+    color: #444;
+    max-width: 300px;   /* keep text readable */
 }
 
 /* --------------------------
-  8️⃣ Responsive / Mobile
+   Optional: Responsive
 --------------------------- */
-@media (max-width: 768px) {
-    body {
-        padding: 0 10px;
-    }
-
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    h3 {
-        font-size: 1.1rem;
-    }
-
-    .laureate {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
+@media screen and (max-width: 600px) {
     .laureate-img {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 8px;
+        width: 150px;
     }
 
-    th, td {
-        padding: 10px 5px;
-        font-size: 0.9rem;
-    }
-
-    .instructions, .progress p, footer p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .laureate-img {
-        width: 80px;
-        height: 80px;
-    }
-
-    th, td {
-        font-size: 0.85rem;
+    .reason {
+        max-width: 200px;
+        font-size: 13px;
     }
 }
