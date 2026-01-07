@@ -4,7 +4,7 @@
 const data = [
     {
         name: "Peter A. Diamond",
-        image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Peter_Diamond_%28economist%29.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Peter_Diamond_cropped.jpg",
         year: "2010",
         hook: "A diamond takes time to find — just like a job.",
         reason: "Peter Diamond developed foundational models of labor markets where search is costly and time-consuming. His work showed that unemployment can persist even when jobs are available because workers and firms must search for suitable matches. These models explain wage dispersion, job vacancies, and the role of policy in markets with search frictions."
