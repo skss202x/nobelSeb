@@ -52,6 +52,7 @@ data.forEach((laureate, index) => {
         <p class="name" id="name-${index}">${laureate.name}</p>
         <p class="year" id="year-${index}">${laureate.year}</p>
         <p class="reason" id="reason-${index}">${laureate.reason}</p>
+        <p class="hook" id="hook-${index}">${laureate.hook}</p>
     `;
 
     wall.appendChild(card);
@@ -61,9 +62,10 @@ data.forEach((laureate, index) => {
     const nameEl = document.getElementById(`name-${index}`);
     const yearEl = document.getElementById(`year-${index}`);
     const reasonEl = document.getElementById(`reason-${index}`);
+    const hookEl = document.getElementById(`hook-${index}`);
 
-    // Initially hide name, year, reason
-    [nameEl, yearEl, reasonEl].forEach(el => el.style.opacity = 0);
+    // Initially hide name, year, reason, hook
+    [nameEl, yearEl, reasonEl, hookEl].forEach(el => el.style.opacity = 0);
 
     function fadeIn(el) {
         el.style.opacity = 1;
@@ -72,5 +74,7 @@ data.forEach((laureate, index) => {
     imgEl.addEventListener('click', () => fadeIn(nameEl));
     nameEl.addEventListener('click', () => fadeIn(yearEl));
     yearEl.addEventListener('click', () => fadeIn(reasonEl));
+    reasonEl.addEventListener('click', () => fadeIn(hookEl)); // NEW: show hook after reason
 });
+
 
