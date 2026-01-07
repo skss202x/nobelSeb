@@ -29,15 +29,32 @@ header p {
     color: #ecf0f1;
 }
 
+
 /* Wall grid */
 .wall {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* maximum 3 images per row */
     gap: 15px;
     padding: 1rem;
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Responsive for smaller screens */
+@media (max-width: 992px) {
+    .wall {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .wall {
+        grid-template-columns: 1fr; /* 1 image per row on phones */
+    }
+}
+
+
+
 
 /* Laureate card */
 .laureate {
