@@ -127,18 +127,4 @@ header p {
     }
 }
 
-.year-row {
-    margin-bottom: 40px;
-}
 
-.year-label {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.year-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
