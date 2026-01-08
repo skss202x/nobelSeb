@@ -269,23 +269,22 @@ const data = [
 // YEAR SUMMARIES
 // ==================================================
 const yearSummaries = {
-    "2010": "A DIAMOND-encrusted door won’t open.
-Unemployed workers (MORTally pale) slip on PISS puddles while trying to find matching keys. ••••• Search frictions in labour markets",
-    "2011": "Macroeconomics, policy & expectations",
-    "2012": "Stable matching & market design",
-    "2013": "Efficient markets vs bubbles",
-    "2014": "Regulating market power",
-    "2015": "Consumption, poverty & welfare",
-    "2016": "Contract theory & incentives",
-    "2017": "Behavioral economics",
-    "2018": "Climate change & innovation",
-    "2019": "Field experiments in development",
-    "2020": "Auction theory & design",
-    "2021": "Causal inference in economics",
-    "2022": "Banking crises & financial stability",
-    "2023": "Gender gaps in labor markets",
-    "2024": "Institutions determine prosperity",
-    "2025": "Innovation & creative destruction"
+    "2010": "DIAMOND miners MORTally PISSed — can’t FIND jobs ••••• (Job matching is slow and frictional )Search frictions in labour markets  ",
+    "2011": "The economy SIMS what SARGENT policy EXPECTS. ••••• ( Policy works through expectations + statistics) Macroeconomics, policy & expectations",
+    "2012": "ROTH designs SHAPE of the most perfect MATCH ••••• Stable matching & market design",
+    "2013": "FAMA (fathermather) says markets are SMART, SHILLER says they’re CRAZY (bubbles&psychology), HANSEN mmbop band measures who’s right  ••••• Efficient markets vs bubbles",
+    "2014": "monopoly game tie-roll, unable to crush smaller firms. ••••• Regulating market power (Regulating oligopolies & platforms)",
+    "2015": "A dining table labeled WELFARE, DEATON (did he eat a ton) lets weighs plates and shopping baskets. ••••• Consumption, poverty & welfare (Consumption reveals wellbeing)",
+    "2016": "with a incentiviced HEART signs a contract tightened with a HOLM (home) lock.••••• Contract theory & incentives (Design contracts to align incentives)",
+    "2017": "THALER (taller) humans are irrational but normal ••••• Behavioral economics (People are predictably irrational)",
+    "2018": "NORD (north) heats the planet, ROMER (Rome) fuels IDEAS ••••• Climate change & innovation (Growth depends on nature + ideas)",
+    "2019": "BAN poverty, DO field tests, KREM (kremlin) real evidence. ••••• Field experiments in development (test solutions dont guess)",
+    "2020": "WILSON (will's son) bids on MIL-GRAM (miligram) fencing shoes in an auction. •••••Auction theory & design (Better auctions = better markets)",
+    "2021": "see CARD shocks, ANGRIST compares, IMBENS (immediately) proves CAUSE ••••• Causal inference in economics (what policy really causes what)",
+    "2022": "BERNANKE stops the panic when DIAMOND hands with DYBVIG faces runs ••••• Banking crises & financial stability (Why banks fail & how to save them)",
+    "2023": "GOLD is discovered by women ••••• Gender gaps in labor markets (Long-run gender wage & labour gaps)",
+    "2024": "ACE card socked in with JOHNSON & ROBINSON — or nations FAIL ••••• Institutions determine prosperity",
+    "2025": "MOKYR (monkey) builds ideas, AGHION (agents) destroys old firms, HOWITT (how to keeps growth ALIVE) •••••   Innovation replaces the old to grow (Innovation & creative destruction   "
 };
 
 
