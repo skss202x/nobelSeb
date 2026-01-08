@@ -239,29 +239,9 @@ const data = [
         year: "2024",
         hook: "Paths to prosperity.",
         reason: "Shared the prize for institutional analysis."
-    },
-
-    {
-        name: "Joel Mokyr",
-        image: "./images/joel_mokyr.jpg",
-        year: "2025",
-        hook: "Sustained growth.",
-        reason: "Awarded for explaining long-term technological progress."
-    },
-    {
-        name: "Philippe Aghion",
-        image: "./images/philippe_aghion.jpg",
-        year: "2025",
-        hook: "Creative destruction.",
-        reason: "Recognized for growth theory."
-    },
-    {
-        name: "Peter Howitt",
-        image: "./images/peter_howitt.jpg",
-        year: "2025",
-        hook: "Economic reinvention.",
-        reason: "Shared the prize for innovation theory."
     }
+
+  
 ];
 
 
@@ -269,21 +249,21 @@ const data = [
 // YEAR SUMMARIES
 // ==================================================
 const yearSummaries = {
-    "2010": "DIAMOND miners MORTally PISSed — can’t FIND jobs ••••• (Job matching is slow and frictional )Search frictions in labour markets  ",
-    "2011": "The economy SIMS what SARGENT policy EXPECTS. ••••• ( Policy works through expectations + statistics) Macroeconomics, policy & expectations",
-    "2012": "ROTH designs SHAPE of the most perfect MATCH ••••• Stable matching & market design",
-    "2013": "FAMA (fathermather) says markets are SMART, SHILLER says they’re CRAZY (bubbles&psychology), HANSEN mmbop band measures who’s right  ••••• Efficient markets vs bubbles",
-    "2014": "monopoly game tie-roll, unable to crush smaller firms. ••••• Regulating market power (Regulating oligopolies & platforms)",
-    "2015": "A dining table labeled WELFARE, DEATON (did he eat a ton) lets weighs plates and shopping baskets. ••••• Consumption, poverty & welfare (Consumption reveals wellbeing)",
-    "2016": "with a incentiviced HEART signs a contract tightened with a HOLM (home) lock.••••• Contract theory & incentives (Design contracts to align incentives)",
-    "2017": "THALER (taller) humans are irrational but normal ••••• Behavioral economics (People are predictably irrational)",
-    "2018": "NORD (north) heats the planet, ROMER (Rome) fuels IDEAS ••••• Climate change & innovation (Growth depends on nature + ideas)",
-    "2019": "BAN poverty, DO field tests, KREM (kremlin) real evidence. ••••• Field experiments in development (test solutions dont guess)",
-    "2020": "WILSON (will's son) bids on MIL-GRAM (miligram) fencing shoes in an auction. •••••Auction theory & design (Better auctions = better markets)",
-    "2021": "see CARD shocks, ANGRIST compares, IMBENS (immediately) proves CAUSE ••••• Causal inference in economics (what policy really causes what)",
-    "2022": "BERNANKE stops the panic when DIAMOND hands with DYBVIG faces runs ••••• Banking crises & financial stability (Why banks fail & how to save them)",
-    "2023": "GOLD is discovered by women ••••• Gender gaps in labor markets (Long-run gender wage & labour gaps)",
-    "2024": "ACE card socked in with JOHNSON & ROBINSON — or nations FAIL ••••• Institutions determine prosperity",
+    "2010": "DIAMOND (takes time) miners MORTally (changes) PISSed can’t find matching underwear ••••• ••••• (Job matching is slow and frictional )Search frictions in labour markets  ",
+    "2011": "The data SIMS SARGENT's history > policy expects. ••••• ••••• ( Policy works through expectations + statistics) Macroeconomics, policy & expectations",
+    "2012": "ROTH matches schools and fair markets of mathematical SHAPEs ••••• ••••• Stable matching & market design",
+    "2013": "FAMA (fathermather) says markets are SMART (market reflects info), SHILLER says they’re CRAZY (bubbles&psychology), HANSEN mmbop band measures risk  ••••• ••••• Efficient markets vs bubbles",
+    "2014": "monopoly game Tirole (tie-roll), frame it to understand and regulate. ••••• ••••• Regulating market power (Regulating oligopolies & platforms)",
+    "2015": "A household table labeled WELFARE, DEATON (did he eat a ton) lets homeless boy and shopping baskets. ••••• •••• Consumption, poverty & welfare (Consumption reveals wellbeing)",
+    "2016": "with a incentiviced HEART signs a contract tightened with a HOLM (home) lock.••••• •••• Contract theory & incentives (Design contracts to align incentives)",
+    "2017": "THALER (taller) humans are irrational but normal (psychological biases influence decisions) •••• ••••• Behavioral economics (People are predictably irrational)",
+    "2018": "NORD (north) heats the planet (climate change) , ROMER (Rome) fuels growth IDEAS ••••• Climate change & innovation (Growth depends on nature + ideas)",
+    "2019": "BAN poverty (rct), DO field tests, KREM (kremlin) scale evidence. ••••• Field experiments in development (test solutions dont guess)",
+    "2020": "WILSON (will's son) uncertainly bids on MIL-GRAM (miligram) in an auction. •••••Auction theory & design (Better auctions = better markets)",
+    "2021": "CARD shocks (real world labor), ANGRIST but casual infer, IMBENS (immediately) measure CAUSE •••• ••••• Causal inference in economics (what policy really causes what)",
+    "2022": "BERNANKE stops the panic (with banks) when DIAMOND hands (create liquidity) with DYBVIG faces cause bankruns ••••• •••• Banking crises & financial stability (Why banks fail & how to save them)",
+    "2023": "GOLD is discovered by women ••••• •••• Gender gaps in labor markets (Long-run gender wage & labour gaps)",
+    "2024": "ACE institute prosper with JOHNSON power elites & ROBINSON path to prosperity ••••  ••••• Institutions determine prosperity",
     "2025": "MOKYR (monkey) builds ideas, AGHION (agents) destroys old firms, HOWITT (how to keeps growth ALIVE) •••••   Innovation replaces the old to grow (Innovation & creative destruction   "
 };
 
