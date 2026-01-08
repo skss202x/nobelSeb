@@ -326,3 +326,212 @@ Object.keys(grouped).sort().forEach(year => {
     section.appendChild(yearBox);
     wall.appendChild(section);
 });
+
+
+
+// --------------------------
+// YEAR SUMMARIES
+// --------------------------
+const yearSummaries = {
+    "2010": `
+        <strong>Diamond, Mortensen, Pissarides (Search & Unemployment)</strong><br><br>
+        <em>Scene:</em><br>
+        A DIAMOND-encrusted door won’t open.<br>
+        Unemployed workers (MORTally pale) slip on PISS puddles while trying to find matching keys.<br><br>
+        • Diamond = hard matching<br>
+        • Mortensen = unemployment pain<br>
+        • Pissarides = job search frustration<br><br>
+        👉 <strong>Search frictions in labour markets</strong>
+    `,
+
+    "2011": `
+        <strong>Sargent & Sims</strong><br><br>
+        <em>Scene:</em><br>
+        A SERGEANT shouts economic orders.<br>
+        A giant computer SIMS different futures labeled “EXPECTATIONS”.<br><br>
+        👉 <strong>Policy + expectations + causal macro</strong>
+    `,
+
+    "2012": `
+        <strong>Roth & Shapley</strong><br><br>
+        <em>Scene:</em><br>
+        A wedding hall where ROTH rearranges couples until every pair fits into SHAPED puzzle slots.<br><br>
+        👉 <strong>Stable matching & market design</strong>
+    `,
+
+    "2013": `
+        <strong>Fama, Hansen, Shiller</strong><br><br>
+        <em>Scene:</em><br>
+        A stock market arena:<br>
+        • FAMA shouts “Markets are PERFECT!”<br>
+        • SHILLER throws bubble balloons<br>
+        • HANSEN measures both with a ruler<br><br>
+        👉 <strong>Efficient markets vs bubbles, statistically tested</strong>
+    `,
+
+    "2014": `
+        <strong>Tirole</strong><br><br>
+        <em>Scene:</em><br>
+        A monopoly monster tied up with a TI-ROLE leash.<br><br>
+        👉 <strong>Regulating market power</strong>
+    `,
+
+    "2015": `
+        <strong>Deaton</strong><br><br>
+        <em>Scene:</em><br>
+        A dining table labeled “WELFARE”.<br>
+        DEATON weighs food plates and shopping baskets.<br><br>
+        👉 <strong>Consumption reveals wellbeing & poverty</strong>
+    `,
+
+    "2016": `
+        <strong>Hart & Holmström</strong><br><br>
+        <em>Scene:</em><br>
+        A glowing HEART signs a contract tightened by a steel HOLM lock.<br><br>
+        👉 <strong>Contract theory & incentives</strong>
+    `,
+
+    "2017": `
+        <strong>Thaler</strong><br><br>
+        <em>Scene:</em><br>
+        People make silly financial choices while THALER nudges them.<br><br>
+        👉 <strong>Behavioral economics</strong>
+    `,
+
+    "2018": `
+        <strong>Nordhaus & Romer</strong><br><br>
+        <em>Scene:</em><br>
+        • A melting NORTH POLE house floods the floor<br>
+        • ROMER fuels an idea factory<br><br>
+        👉 <strong>Climate + innovation drive growth</strong>
+    `,
+
+    "2019": `
+        <strong>Banerjee, Duflo, Kremer</strong><br><br>
+        <em>Scene:</em><br>
+        A poverty lab:<br>
+        • BAN hammer smashing poverty<br>
+        • DUFLO running experiments<br>
+        • KREMER stamps “RCT APPROVED”<br><br>
+        👉 <strong>Field experiments in development</strong>
+    `,
+
+    "2020": `
+        <strong>Milgrom & Wilson</strong><br><br>
+        <em>Scene:</em><br>
+        An auction hall where bids fly and MIL-GRAM weights balance prices.<br><br>
+        👉 <strong>Auction theory & design</strong>
+    `,
+
+    "2021": `
+        <strong>Card, Angrist, Imbens</strong><br><br>
+        <em>Scene:</em><br>
+        A science lab testing policy shocks and causal stamps.<br><br>
+        👉 <strong>Natural experiments & causal inference</strong>
+    `,
+
+    "2022": `
+        <strong>Bernanke, Diamond, Dybvig</strong><br><br>
+        <em>Scene:</em><br>
+        A bank run chaos — vaults crack, cash slips, panic spreads.<br>
+        BERNANKE arrives with a fire extinguisher.<br><br>
+        👉 <strong>Banking crises & financial stability</strong>
+    `,
+
+    "2023": `
+        <strong>Goldin</strong><br><br>
+        <em>Scene:</em><br>
+        A hallway of women’s work history ending in uneven GOLD bars.<br><br>
+        👉 <strong>Gender gaps in labour markets</strong>
+    `,
+
+    "2024": `
+        <strong>Acemoglu, Johnson, Robinson</strong><br><br>
+        <em>Scene:</em><br>
+        A nation-building game flipping countries between paths.<br><br>
+        👉 <strong>Institutions determine prosperity</strong>
+    `,
+
+    "2025": `
+        <strong>Mokyr, Aghion, Howitt</strong><br><br>
+        <em>Scene:</em><br>
+        A roaring innovation machine smashing old firms and creating new ideas.<br><br>
+        👉 <strong>Innovation & creative destruction</strong>
+    `
+};
+
+
+// --------------------------
+// GROUP BY YEAR
+// --------------------------
+const grouped = {};
+data.forEach(l => {
+    if (!grouped[l.year]) grouped[l.year] = [];
+    grouped[l.year].push(l);
+});
+
+
+// --------------------------
+// RENDER
+// --------------------------
+const wall = document.getElementById("wall");
+
+Object.keys(grouped).sort().forEach(year => {
+
+    const section = document.createElement("section");
+    section.className = "year-section";
+
+    const label = document.createElement("h2");
+    label.className = "year-label";
+    label.textContent = year;
+
+    const cards = document.createElement("div");
+    cards.className = "year-cards";
+
+    let completedCount = 0;
+
+    grouped[year].forEach(l => {
+
+        const card = document.createElement("div");
+        card.className = "laureate";
+
+        card.innerHTML = `
+            <img src="${l.image}" alt="${l.name}">
+            <p class="name">${l.name}</p>
+            <p class="reason">${l.reason}</p>
+            <p class="hook">${l.hook}</p>
+        `;
+
+        const img = card.querySelector("img");
+        const name = card.querySelector(".name");
+        const reason = card.querySelector(".reason");
+        const hook = card.querySelector(".hook");
+
+        img.onclick = () => name.style.display = "block";
+        name.onclick = () => reason.style.display = "block";
+        reason.onclick = () => {
+            hook.style.display = "block";
+            completedCount++;
+            checkYearComplete();
+        };
+
+        cards.appendChild(card);
+    });
+
+    // YEAR TEXTBOX
+    const yearBox = document.createElement("div");
+    yearBox.className = "year-textbox";
+    yearBox.style.display = "none";
+    yearBox.innerHTML = yearSummaries[year] || "";
+
+    function checkYearComplete() {
+        if (completedCount === grouped[year].length) {
+            yearBox.style.display = "block";
+        }
+    }
+
+    section.appendChild(label);
+    section.appendChild(cards);
+    section.appendChild(yearBox);
+    wall.appendChild(section);
+});
