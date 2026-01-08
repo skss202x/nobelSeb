@@ -346,121 +346,98 @@ const yearSummaries = {
     "2025": "MOKYR (monkey) builds ideas, AGHION (agents) destroys old firms, HOWITT (how to keeps growth ALIVE) •••••   Innovation replaces the old to grow (Innovation & creative destruction   "
 };
 
-// ==================================================
-// DATA
-// ==================================================
-// (keep your existing `data` array here)
+// ==========================
+// DOM Elements
+// ==========================
+const wall = document.getElementById('wall');
 
-// ==================================================
-// RENDER QUIZ
-// ==================================================
-const wall = document.getElementById("wall");
+// Create quiz container
+const quizContainer = document.createElement('div');
+quizContainer.className = 'laureate-quiz';
+wall.appendChild(quizContainer);
 
-// Shuffle function to pick random laureates
-function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
-}
+// Create image element
+const img = document.createElement('img');
+img.className = 'laureate-img';
+quizContainer.appendChild(img);
 
-let shuffled = shuffleArray([...data]);
+// Create name, reason, hook elements
+const nameEl = document.createElement('div');
+nameEl.className = 'name';
+quizContainer.appendChild(nameEl);
+
+const reasonEl = document.createElement('div');
+reasonEl.className = 'reason';
+quizContainer.appendChild(reasonEl);
+
+const hookEl = document.createElement('div');
+hookEl.className = 'hook';
+quizContainer.appendChild(hookEl);
+
+// Click hint
+const hintEl = document.createElement('div');
+hintEl.className = 'click-hint';
+hintEl.textContent = 'Click the image to reveal the laureate!';
+quizContainer.appendChild(hintEl);
+
+// ==========================
+// Quiz Logic
+// ==========================
 let currentIndex = 0;
+let stage = 0; // 0=image, 1=name, 2=reason+hook
 
-function showNextLaureate() {
-    // Clear previous content
-    wall.innerHTML = "";
+function showLaureate(index) {
+    const laureate = laureates[index];
+    img.src = laureate.image;
+    nameEl.textContent = laureate.name;
+    reasonEl.textContent = laureate.reason;
+    hookEl.textContent = laureate.hook;
 
-    if (currentIndex >= shuffled.length) {
-        currentIndex = 0;
-        shuffled = shuffleArray([...data]);
-    }
-
-    const l = shuffled[currentIndex];
-    currentIndex++;
-
-    const card = document.createElement("div");
-    card.className = "laureate-quiz";
-
-    card.innerHTML = `
-        <img src="${l.image}" alt="${l.name}" class="laureate-img">
-        <p class="name" style="display:none;">${l.name}</p>
-        <p class="reason" style="display:none;">${l.reason}</p>
-        <p class="hook" style="display:none;">${l.hook}</p>
-    `;
-
-    const img = card.querySelector("img");
-    const name = card.querySelector(".name");
-    const reason = card.querySelector(".reason");
-    const hook = card.querySelector(".hook");
-
-    // Click image → show name
-    img.onclick = () => {
-        name.style.display = "block";
-    };
-
-    // Click name → show reason + hook, then next laureate
-    name.onclick = () => {
-        reason.style.display = "block";
-        hook.style.display = "block";
-
- 
-    };
-
-    wall.appendChild(card);
-}
-
-
-
-let currentIndex = 0;
-let stage = 0; // 0 = image only, 1 = show name, 2 = show reason+hook
-
-const laureates = [
-    // your laureates array here
-];
-
-const imgEl = document.querySelector(".laureate-img");
-const nameEl = document.querySelector(".name");
-const reasonEl = document.querySelector(".reason");
-const hookEl = document.querySelector(".hook");
-
-function showLaureate() {
-    const laureate = laureates[currentIndex];
-
-    // Reset content
-    imgEl.src = laureate.image;
-    nameEl.textContent = "";
-    reasonEl.textContent = "";
-    hookEl.textContent = "";
+    // Reset visibility
+    nameEl.style.display = 'none';
+    reasonEl.style.display = 'none';
+    hookEl.style.display = 'none';
     stage = 0;
+
+    hintEl.textContent = 'Click the image to reveal the laureate!';
 }
 
-// When user clicks image
-imgEl.addEventListener("click", () => {
+// Handle clicks
+img.addEventListener('click', () => {
     if (stage === 0) {
-        // Show name
-        nameEl.textContent = laureates[currentIndex].name;
+        nameEl.style.display = 'block';
+        hintEl.textContent = 'Click the name to see reason and hook!';
         stage = 1;
-    } else if (stage === 1) {
-        // Show reason and hook
-        reasonEl.textContent = laureates[currentIndex].reason;
-        hookEl.textContent = laureates[currentIndex].hook;
-        stage = 2;
     } else if (stage === 2) {
         // Move to next laureate
-        currentIndex = (currentIndex + 1) % laureates.length;
-        showLaureate();
+        nextLaureate();
     }
 });
 
-// Optional: allow clicking on name also to reveal reason+hook
-nameEl.addEventListener("click", () => {
+nameEl.addEventListener('click', () => {
     if (stage === 1) {
-        reasonEl.textContent = laureates[currentIndex].reason;
-        hookEl.textContent = laureates[currentIndex].hook;
+        reasonEl.style.display = 'block';
+        hookEl.style.display = 'block';
+        hintEl.textContent = 'Click the image to see the next laureate!';
         stage = 2;
     }
 });
 
+hookEl.addEventListener('click', () => {
+    if (stage === 2) {
+        nextLaureate();
+    }
+});
+
+// Show next laureate randomly
+function nextLaureate() {
+    let nextIndex;
+    do {
+        nextIndex = Math.floor(Math.random() * laureates.length);
+    } while (nextIndex === currentIndex); // avoid same twice
+    currentIndex = nextIndex;
+    showLaureate(currentIndex);
+}
+
 // Initialize first laureate
-showLaureate();
-
-
-
+showLaureate(currentIndex);
