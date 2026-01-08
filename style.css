@@ -103,3 +103,40 @@ header {
         padding: 6px 12px;
     }
 }
+
+/* ===========================
+   IMAGE CLICK INDICATOR
+   =========================== */
+.laureate-img {
+    max-width: 300px;
+    width: 90vw;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, box-shadow 0.5s ease-in-out;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+/* Pulse glow to indicate click */
+@keyframes pulse {
+    0% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0px rgba(106, 76, 147, 0.3); }
+    50% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 20px rgba(106, 76, 147, 0.6); }
+    100% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0px rgba(106, 76, 147, 0.3); }
+}
+
+/* Optional text hint below image */
+.click-hint {
+    font-size: 0.9em;
+    color: #6a4c93;
+    margin-top: 10px;
+    font-style: italic;
+    animation: fade 1.5s infinite alternate;
+}
+
+@keyframes fade {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
