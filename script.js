@@ -25,19 +25,21 @@ const data = [
     },
 
     {
-        name: "Thomas J. Sargent",
-        image: "./images/thomas_sargent.jpg",
-        year: "2011",
-        hook: "Learning from history to improve policy.",
-        reason: "Awarded for empirical research on how economic policies and expectations about policy affect inflation and employment."
-    },
-    {
         name: "Christopher A. Sims",
         image: "./images/christopher_sims.jpg",
         year: "2011",
         hook: "Using data to understand the economy.",
         reason: "Shared the 2011 prize for developing statistical tools that help economists analyze how policy decisions influence the economy using real-world data."
-    },
+ 
+            },
+    {
+        name: "Thomas J. Sargent",
+        image: "./images/thomas_sargent.jpg",
+        year: "2011",
+        hook: "Learning from history to improve policy.",
+        reason: "Awarded for empirical research on how economic policies and expectations about policy affect inflation and employment."
+
+           },
 
     {
         name: "Alvin E. Roth",
@@ -62,18 +64,21 @@ const data = [
         reason: "Won for showing how financial markets incorporate information into prices, a concept known as the efficient market hypothesis."
     },
     {
-        name: "Lars Peter Hansen",
-        image: "./images/lars_hansen.jpg",
-        year: "2013",
-        hook: "Measuring risk in financial markets.",
-        reason: "Recognized for developing statistical methods that help test how well economic and financial models explain real-world data."
-    },
-    {
         name: "Robert J. Shiller",
         image: "./images/robert_shiller.jpg",
         year: "2013",
         hook: "Understanding market ups and downs.",
         reason: "Awarded for showing how psychological factors and bubbles can make markets fluctuate beyond what traditional fundamentals predict."
+       
+           },
+    {
+         
+        name: "Lars Peter Hansen",
+        image: "./images/lars_hansen.jpg",
+        year: "2013",
+        hook: "Measuring risk in financial markets.",
+        reason: "Recognized for developing statistical methods that help test how well economic and financial models explain real-world data."
+ 
     },
 
     {
@@ -153,19 +158,21 @@ const data = [
     },
 
     {
-        name: "Paul R. Milgrom",
-        image: "./images/paul_milgrom.jpg",
-        year: "2020",
-        hook: "Better auctions.",
-        reason: "Recognized for improving auction theory."
-    },
-    {
         name: "Robert B. Wilson",
         image: "./images/robert_wilson.jpg",
         year: "2020",
         hook: "Bidding strategies.",
         reason: "Shared the prize for explaining bidding under uncertainty."
-    },
+  
+            },
+    {
+        name: "Paul R. Milgrom",
+        image: "./images/paul_milgrom.jpg",
+        year: "2020",
+        hook: "Better auctions.",
+        reason: "Recognized for improving auction theory."
+
+          },
 
     {
         name: "David Card",
