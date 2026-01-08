@@ -1,20 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const wall = document.getElementById("wall");
 
-  data.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <h3>${item.name}</h3>
-    `;
-    card.addEventListener("click", () => {
-      alert(item.description);
-    });
-    wall.appendChild(card);
-  });
-});
 
 // ==================================================
 // DATA
@@ -456,6 +441,23 @@ function nextLaureate() {
     currentIndex = nextIndex;
     showLaureate(currentIndex);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wall = document.getElementById("wall");
+
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <h3>${item.name}</h3>
+    `;
+    card.addEventListener("click", () => {
+      alert(item.description);
+    });
+    wall.appendChild(card);
+  });
+});
 
 // Initialize first laureate
 showLaureate(currentIndex);
