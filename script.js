@@ -401,17 +401,66 @@ function showNextLaureate() {
         reason.style.display = "block";
         hook.style.display = "block";
 
-        // small delay so user sees content before next image
-        setTimeout(showNextLaureate, 5000); // 5 seconds
+ 
     };
 
     wall.appendChild(card);
 }
 
-// Initial display
-showNextLaureate();
 
 
+let currentIndex = 0;
+let stage = 0; // 0 = image only, 1 = show name, 2 = show reason+hook
+
+const laureates = [
+    // your laureates array here
+];
+
+const imgEl = document.querySelector(".laureate-img");
+const nameEl = document.querySelector(".name");
+const reasonEl = document.querySelector(".reason");
+const hookEl = document.querySelector(".hook");
+
+function showLaureate() {
+    const laureate = laureates[currentIndex];
+
+    // Reset content
+    imgEl.src = laureate.image;
+    nameEl.textContent = "";
+    reasonEl.textContent = "";
+    hookEl.textContent = "";
+    stage = 0;
+}
+
+// When user clicks image
+imgEl.addEventListener("click", () => {
+    if (stage === 0) {
+        // Show name
+        nameEl.textContent = laureates[currentIndex].name;
+        stage = 1;
+    } else if (stage === 1) {
+        // Show reason and hook
+        reasonEl.textContent = laureates[currentIndex].reason;
+        hookEl.textContent = laureates[currentIndex].hook;
+        stage = 2;
+    } else if (stage === 2) {
+        // Move to next laureate
+        currentIndex = (currentIndex + 1) % laureates.length;
+        showLaureate();
+    }
+});
+
+// Optional: allow clicking on name also to reveal reason+hook
+nameEl.addEventListener("click", () => {
+    if (stage === 1) {
+        reasonEl.textContent = laureates[currentIndex].reason;
+        hookEl.textContent = laureates[currentIndex].hook;
+        stage = 2;
+    }
+});
+
+// Initialize first laureate
+showLaureate();
 
 
 
