@@ -1,11 +1,15 @@
 /* ===========================
    RESET & BASE STYLES
-   =========================== */
+=========================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -21,7 +25,7 @@ body {
 
 /* ===========================
    HEADER
-   =========================== */
+=========================== */
 header {
     width: 100%;
     text-align: center;
@@ -32,26 +36,40 @@ header {
 }
 
 /* ===========================
-   QUIZ LAUREATE CARD
-   =========================== */
+   QUIZ WRAPPER (center content)
+=========================== */
+#wall {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
+    align-items: center;
+    width: 100%;
+}
+
+/* ===========================
+   QUIZ CARD
+=========================== */
 .laureate-quiz {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 50px;
     text-align: center;
     transition: all 0.3s ease-in-out;
 }
 
+/* ===========================
+   IMAGE STYLING
+=========================== */
 .laureate-img {
-    max-width: 300px;      /* limit image width */
-    width: 90vw;           /* responsive for mobile */
+    max-width: 300px;
+    width: 90vw;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
 .laureate-img:hover {
@@ -59,9 +77,16 @@ header {
     box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 
+/* Pulse glow animation */
+@keyframes pulse {
+    0% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0px rgba(106, 76, 147, 0.3); }
+    50% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 20px rgba(106, 76, 147, 0.6); }
+    100% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0px rgba(106, 76, 147, 0.3); }
+}
+
 /* ===========================
-   NAME, REASON, HOOK
-   =========================== */
+   TEXT PANELS
+=========================== */
 .name, .reason, .hook {
     margin-top: 15px;
     padding: 10px 20px;
@@ -77,56 +102,27 @@ header {
     transition: background 0.3s ease;
 }
 
+.name {
+    background: #b5e0a4;
+    font-weight: 600;
+}
+
+.reason {
+    background: #e8f1fa;
+}
+
+.hook {
+    background: #fce4ec;
+    font-weight: 700;
+}
+
 .name:hover, .reason:hover, .hook:hover {
-    background: #f0e6f7;  /* light pastel highlight on hover */
+    background: #f0e6f7;
 }
 
 /* ===========================
-   RESPONSIVE
-   =========================== */
-@media (max-width: 768px) {
-    .laureate-img {
-        max-width: 250px;
-    }
-    .name, .reason, .hook {
-        font-size: 0.95em;
-        padding: 8px 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .laureate-img {
-        max-width: 200px;
-    }
-    .name, .reason, .hook {
-        font-size: 0.9em;
-        padding: 6px 12px;
-    }
-}
-
-/* ===========================
-   IMAGE CLICK INDICATOR
-   =========================== */
-.laureate-img {
-    max-width: 300px;
-    width: 90vw;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, box-shadow 0.5s ease-in-out;
-    position: relative;
-    animation: pulse 2s infinite;
-}
-
-/* Pulse glow to indicate click */
-@keyframes pulse {
-    0% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0px rgba(106, 76, 147, 0.3); }
-    50% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 20px rgba(106, 76, 147, 0.6); }
-    100% { box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0px rgba(106, 76, 147, 0.3); }
-}
-
-/* Optional text hint below image */
+   CLICK HINT
+=========================== */
 .click-hint {
     font-size: 0.9em;
     color: #6a4c93;
@@ -140,3 +136,15 @@ header {
     100% { opacity: 1; }
 }
 
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .laureate-img { max-width: 250px; }
+    .name, .reason, .hook { font-size: 0.95em; padding: 8px 16px; }
+}
+
+@media (max-width: 480px) {
+    .laureate-img { max-width: 200px; }
+    .name, .reason, .hook { font-size: 0.9em; padding: 6px 12px; }
+}
