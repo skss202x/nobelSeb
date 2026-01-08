@@ -1,167 +1,153 @@
-/* ==================================================
-   GLOBAL RESET & BASE
-================================================== */
-
-* {
+/* ===== Global Reset ===== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
-  background: #0f1220;
-  color: #eaeaf0;
-  line-height: 1.6;
-  padding: 40px 20px;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-/* ==================================================
-   WALL LAYOUT
-================================================== */
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+  padding: 1rem;
+}
 
-#wall {
+/* ===== Layout Containers ===== */
+.container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
-/* ==================================================
-   YEAR SECTION
-================================================== */
-
-.year-section {
-  margin-bottom: 64px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.year-label {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-  letter-spacing: 1px;
-  color: #ffd166;
-}
-
-/* ==================================================
-   CARD GRID
-================================================== */
-
-.year-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-/* ==================================================
-   LAUREATE CARD
-================================================== */
-
-.laureate {
-  background: #181b34;
-  border-radius: 14px;
-  padding: 16px;
+header {
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ===== Card Grid ===== */
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 1rem;
+}
+
+/* ===== Individual Card ===== */
+.card {
+  background: white;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.laureate:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* ==================================================
-   IMAGE
-================================================== */
-
-.laureate img {
+.card img {
+  display: block;
   width: 100%;
-  height: 240px;
+  height: auto;
   object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: border-color 0.2s ease;
 }
 
-.laureate img:hover {
-  border-color: #ffd166;
+/* ===== Card Details ===== */
+.card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ==================================================
-   TEXT REVEAL STATES
-================================================== */
-
-.laureate p {
-  margin-top: 12px;
-  display: none;
-  cursor: pointer;
+.card-body h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
 }
 
-/* NAME */
-.laureate .name {
+.card-body p.hook {
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 1rem;
-  color: #ffffff;
+  color: #444;
+  margin-bottom: 0.8rem;
 }
 
-/* REASON */
-.laureate .reason {
-  font-size: 0.9rem;
-  color: #cfd3ff;
+.card-body p.reason {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex: 1;
+  color: #555;
 }
 
-/* HOOK */
-.laureate .hook {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #9be7ff;
+/* ===== Bullet List Style (in Reason) ===== */
+.card-body .reason ul {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  list-style-type: disc;
 }
 
-/* ==================================================
-   YEAR SUMMARY BOX
-================================================== */
-
-.year-textbox {
-  margin-top: 28px;
-  padding: 20px 24px;
-  background: linear-gradient(135deg, #22265a, #2f347a);
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  animation: fadeIn 0.4s ease;
+.card-body .reason ul li {
+  margin-bottom: 0.4rem;
 }
 
-/* ==================================================
-   ANIMATION
-================================================== */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ===== Buttons (if any) ===== */
+button,
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  background: #246bb3;
+  color: #fff;
+  border: none;
+  border-radius: 0.35rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
 }
 
-/* ==================================================
-   RESPONSIVE TWEAKS
-================================================== */
+button:hover,
+.btn:hover {
+  background: #1e569b;
+}
 
-@media (max-width: 600px) {
-  .year-label {
-    font-size: 1.6rem;
+/* ===== Responsive Text ===== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
   }
 
-  .laureate img {
-    height: 200px;
+  .card-body h2 {
+    font-size: 1.25rem;
   }
 }
+
+/* ===== Utility Spacing ===== */
+.mt-1 { margin-top: 1rem !important; }
+.mt-2 { margin-top: 2rem !important; }
+.mb-1 { margin-bottom: 1rem !important; }
+.text-center { text-align: center !important; }
