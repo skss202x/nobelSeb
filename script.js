@@ -343,102 +343,116 @@ const yearSummaries = {
     "2025": "MOKYR (monkey) builds ideas, AGHION (agents) destroys old firms, HOWITT (how to keeps growth ALIVE) •••••   Innovation replaces the old to grow (Innovation & creative destruction   "
 };
 
-// ==========================
-// DOM Elements
-// ==========================
-const wall = document.getElementById('wall');
+// ==================================================
+// DOM Elements & Containers
+// ==================================================
+document.addEventListener("DOMContentLoaded", () => {
 
-// Create quiz container
-const quizContainer = document.createElement('div');
-quizContainer.className = 'laureate-quiz';
-wall.appendChild(quizContainer);
+  // Main wall
+  const wall = document.getElementById('wall');
 
-// Create image element
-const img = document.createElement('img');
-img.className = 'laureate-img';
-quizContainer.appendChild(img);
+  // --------------------------
+  // QUIZ CONTAINER
+  // --------------------------
+  const quizContainer = document.createElement('div');
+  quizContainer.className = 'laureate-quiz';
+  wall.appendChild(quizContainer);
 
-// Create name, reason, hook elements
-const nameEl = document.createElement('div');
-nameEl.className = 'name';
-quizContainer.appendChild(nameEl);
+  // Image element
+  const img = document.createElement('img');
+  img.className = 'laureate-img';
+  quizContainer.appendChild(img);
 
-const reasonEl = document.createElement('div');
-reasonEl.className = 'reason';
-quizContainer.appendChild(reasonEl);
+  // Text elements
+  const nameEl = document.createElement('div');
+  nameEl.className = 'name';
+  quizContainer.appendChild(nameEl);
 
-const hookEl = document.createElement('div');
-hookEl.className = 'hook';
-quizContainer.appendChild(hookEl);
+  const reasonEl = document.createElement('div');
+  reasonEl.className = 'reason';
+  quizContainer.appendChild(reasonEl);
 
-// Click hint
-const hintEl = document.createElement('div');
-hintEl.className = 'click-hint';
-hintEl.textContent = 'Click the image to reveal the laureate!';
-quizContainer.appendChild(hintEl);
+  const hookEl = document.createElement('div');
+  hookEl.className = 'hook';
+  quizContainer.appendChild(hookEl);
 
-// ==========================
-// Quiz Logic
-// ==========================
-let currentIndex = 0;
-let stage = 0; // 0=image, 1=name, 2=reason+hook
+  // Click hint
+  const hintEl = document.createElement('div');
+  hintEl.className = 'click-hint';
+  hintEl.textContent = 'Click the image to reveal the laureate!';
+  quizContainer.appendChild(hintEl);
 
-function showLaureate(index) {
+  // --------------------------
+  // QUIZ LOGIC
+  // --------------------------
+  let currentIndex = 0;
+  let stage = 0; // 0=image, 1=name, 2=reason+hook
+
+  function showLaureate(index) {
     const laureate = data[index];
     img.src = laureate.image;
+    img.alt = laureate.name;
     nameEl.textContent = laureate.name;
     reasonEl.textContent = laureate.reason;
     hookEl.textContent = laureate.hook;
 
-    // Reset visibility
+    // Hide text initially
     nameEl.style.display = 'none';
     reasonEl.style.display = 'none';
     hookEl.style.display = 'none';
     stage = 0;
 
     hintEl.textContent = 'Click the image to reveal the laureate!';
-}
+  }
 
-// Handle clicks
-img.addEventListener('click', () => {
+  // Image click
+  img.addEventListener('click', () => {
     if (stage === 0) {
-        nameEl.style.display = 'block';
-        hintEl.textContent = 'Click the name to see reason and hook!';
-        stage = 1;
+      nameEl.style.display = 'block';
+      hintEl.textContent = 'Click the name to see reason and hook!';
+      stage = 1;
     } else if (stage === 2) {
-        nextLaureate();
+      nextLaureate();
     }
-});
+  });
 
-nameEl.addEventListener('click', () => {
+  // Name click
+  nameEl.addEventListener('click', () => {
     if (stage === 1) {
-        reasonEl.style.display = 'block';
-        hookEl.style.display = 'block';
-        hintEl.textContent = 'Click the image to see the next laureate!';
-        stage = 2;
+      reasonEl.style.display = 'block';
+      hookEl.style.display = 'block';
+      hintEl.textContent = 'Click the image to see the next laureate!';
+      stage = 2;
     }
-});
+  });
 
-hookEl.addEventListener('click', () => {
+  // Hook click also moves to next laureate
+  hookEl.addEventListener('click', () => {
     if (stage === 2) {
-        nextLaureate();
+      nextLaureate();
     }
-});
+  });
 
-// Show next laureate randomly
-function nextLaureate() {
+  // Next laureate randomly
+  function nextLaureate() {
     let nextIndex;
     do {
-        nextIndex = Math.floor(Math.random() * data.length);
+      nextIndex = Math.floor(Math.random() * data.length);
     } while (nextIndex === currentIndex);
     currentIndex = nextIndex;
     showLaureate(currentIndex);
-}
+  }
 
-// ==========================
-// Cards Section
-// ==========================
-document.addEventListener("DOMContentLoaded", () => {
+  // Initialize first laureate
+  showLaureate(currentIndex);
+
+  // --------------------------
+  // CARDS SECTION
+  // --------------------------
+  const cardsWall = document.createElement('div');
+  cardsWall.id = 'cards-wall';
+  wall.appendChild(cardsWall);
+
   data.forEach(item => {
     const card = document.createElement("div");
     card.className = "card";
@@ -447,11 +461,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <h3>${item.name}</h3>
     `;
     card.addEventListener("click", () => {
-      alert(item.reason); // show reason on click
+      alert(item.reason);
     });
-    wall.appendChild(card);
+    cardsWall.appendChild(card);
   });
 
-  // Initialize first laureate
-  showLaureate(currentIndex);
 });
+
