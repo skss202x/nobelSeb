@@ -461,62 +461,7 @@ const yearSummaries = {
 };
 
 
-// --------------------------
-// GROUP BY YEAR
-// --------------------------
-const grouped = {};
-data.forEach(l => {
-    if (!grouped[l.year]) grouped[l.year] = [];
-    grouped[l.year].push(l);
-});
 
-
-// --------------------------
-// RENDER
-// --------------------------
-const wall = document.getElementById("wall");
-
-Object.keys(grouped).sort().forEach(year => {
-
-    const section = document.createElement("section");
-    section.className = "year-section";
-
-    const label = document.createElement("h2");
-    label.className = "year-label";
-    label.textContent = year;
-
-    const cards = document.createElement("div");
-    cards.className = "year-cards";
-
-    let completedCount = 0;
-
-    grouped[year].forEach(l => {
-
-        const card = document.createElement("div");
-        card.className = "laureate";
-
-        card.innerHTML = `
-            <img src="${l.image}" alt="${l.name}">
-            <p class="name">${l.name}</p>
-            <p class="reason">${l.reason}</p>
-            <p class="hook">${l.hook}</p>
-        `;
-
-        const img = card.querySelector("img");
-        const name = card.querySelector(".name");
-        const reason = card.querySelector(".reason");
-        const hook = card.querySelector(".hook");
-
-        img.onclick = () => name.style.display = "block";
-        name.onclick = () => reason.style.display = "block";
-        reason.onclick = () => {
-            hook.style.display = "block";
-            completedCount++;
-            checkYearComplete();
-        };
-
-        cards.appendChild(card);
-    });
 
     // YEAR TEXTBOX
     const yearBox = document.createElement("div");
