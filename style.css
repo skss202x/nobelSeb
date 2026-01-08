@@ -1,4 +1,6 @@
-/* RESET */
+/* --------------------------
+   RESET
+-------------------------- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,99 +11,172 @@
 body {
     background: #f6f7fb;
     color: #222;
+    line-height: 1.5;
 }
 
-/* HEADER */
+/* --------------------------
+   HEADER
+-------------------------- */
 header {
     text-align: center;
-    padding: 2rem 1rem;
-    background: #1f2937;
+    padding: 2.5rem 1rem;
+    background: linear-gradient(135deg, #1f2937, #111827);
     color: white;
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    letter-spacing: 0.3px;
 }
 
 header p {
     opacity: 0.85;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
 }
 
-/* YEAR SECTION */
+/* --------------------------
+   YEAR SECTION
+-------------------------- */
 .year-section {
-    margin: 2.5rem auto;
+    margin: 3rem auto;
     max-width: 1100px;
     padding: 0 1rem;
 }
 
 .year-label {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    margin-bottom: 1.3rem;
     text-align: center;
+    font-weight: 700;
+    color: #1f2937;
 }
 
-/* CARD GRID (MAX 3 PER ROW) */
+/* --------------------------
+   CARD GRID
+-------------------------- */
 .year-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    gap: 1.4rem;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .year-cards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media (max-width: 600px) {
     .year-cards {
         grid-template-columns: 1fr;
     }
 }
 
-/* LAUREATE CARD */
+/* --------------------------
+   LAUREATE CARD
+-------------------------- */
 .laureate {
     background: white;
-    border-radius: 14px;
-    padding: 1rem;
+    border-radius: 16px;
+    padding: 1.1rem;
     text-align: center;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* IMAGE */
+.laureate:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* --------------------------
+   IMAGE
+-------------------------- */
 .laureate img {
     width: 100%;
     max-width: 260px;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .laureate img:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-/* TEXT */
+/* --------------------------
+   TEXT REVEAL FLOW
+-------------------------- */
 .laureate p {
-    margin-top: 0.6rem;
-    line-height: 1.4;
+    margin-top: 0.7rem;
+    line-height: 1.45;
+    cursor: pointer;
 }
 
-/* HIDDEN BY DEFAULT */
+.name {
+    font-weight: 600;
+    color: #111827;
+}
+
+.reason {
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.hook {
+    font-size: 0.88rem;
+    color: #4f46e5;
+    font-style: italic;
+}
+
+/* Hidden by default */
 .name,
 .reason,
 .hook {
     display: none;
 }
 
-/* YEAR TEXTBOX */
+/* --------------------------
+   YEAR TEXTBOX (SUMMARY REVEAL)
+-------------------------- */
 .year-textbox {
-    display: none;
-    margin-top: 1.5rem;
-    padding: 1.2rem;
-    background: #eef2ff;
+    margin-top: 2rem;
+    padding: 1.6rem 1.8rem;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
     border-left: 6px solid #4f46e5;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 0.95rem;
+    color: #1f2937;
+    line-height: 1.65;
+    box-shadow: 0 10px 28px rgba(79,70,229,0.15);
+    animation: fadeSlideIn 0.6s ease forwards;
+}
+
+/* Emphasis inside summaries */
+.year-textbox strong {
+    font-size: 1.05rem;
+    color: #312e81;
+}
+
+.year-textbox em {
+    color: #4338ca;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* --------------------------
+   ANIMATION
+-------------------------- */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
