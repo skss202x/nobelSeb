@@ -246,7 +246,79 @@ const data = [
         year: "2024",
         hook: "Paths to prosperity.",
         reason: "Key Discoveries:\n\t•\tInstitutions and Development: Robinson demonstrated how governance, legal frameworks, and institutional choices influence divergent development trajectories.\n\t•\tComparative Evidence: He provided historical and empirical evidence on how inclusive institutions support sustained prosperity.\nImpact:\n\t•\tHis work helps explain why some countries thrive while others struggle.\n\t•\tRobinson’s research frames institutions as foundational to economic success.•••• •••• Shared the prize for institutional analysis."
-    }
+    },
+
+    {
+    name: "Paul A. Samuelson",
+    image: "./images/paul_samuelson.jpg",
+    year: "1970",
+    hook: "Mathematics reshaped economics.",
+    reason: "Key Discoveries:\n\t•\tFoundations of Modern Economics: Samuelson formalized economics using mathematical methods, bringing clarity and rigor to economic theory.\n\t•\tRevealed Preference Theory: He developed tools to infer consumer preferences from observed behavior.\nImpact:\n\t•\tHis work unified microeconomics and macroeconomics under a common analytical framework.\n\t•\tSamuelson’s textbooks educated generations of economists worldwide. •••• •••• Awarded for raising the level of scientific analysis in economic theory."
+},
+{
+    name: "Milton Friedman",
+    image: "./images/milton_friedman.jpg",
+    year: "1976",
+    hook: "Money matters more than you think.",
+    reason: "Key Discoveries:\n\t•\tMonetarism: Friedman showed that changes in the money supply have powerful effects on inflation and economic cycles.\n\t•\tPermanent Income Hypothesis: He explained how consumers base spending on long-term income expectations.\nImpact:\n\t•\tHis work reshaped macroeconomic policy and central banking.\n\t•\tFriedman strongly influenced debates on inflation, government intervention, and free markets. •••• •••• Awarded for achievements in consumption analysis, monetary history, and stabilization policy."
+},
+{
+    name: "Friedrich A. Hayek",
+    image: "./images/friedrich_hayek.jpg",
+    year: "1974",
+    hook: "Why central planning fails.",
+    reason: "Key Discoveries:\n\t•\tKnowledge Problem: Hayek showed that information in an economy is decentralized and cannot be efficiently aggregated by central planners.\n\t•\tPrice System as Signals: He explained how prices coordinate dispersed knowledge.\nImpact:\n\t•\tHis ideas shaped modern views on markets, institutions, and economic freedom.\n\t•\tHayek’s work influenced political economy and debates on socialism versus markets. •••• •••• Shared the prize for work on money and economic fluctuations."
+},
+{
+    name: "John R. Hicks",
+    image: "./images/john_hicks.jpg",
+    year: "1972",
+    hook: "Explaining markets with curves.",
+    reason: "Key Discoveries:\n\t•\tIS–LM Model: Hicks formalized Keynesian macroeconomics into a clear analytical framework.\n\t•\tConsumer Theory: He advanced demand theory and welfare economics.\nImpact:\n\t•\tHis models became standard tools in teaching and policy analysis.\n\t•\tHicks helped bridge classical and Keynesian economics. •••• •••• Awarded for contributions to general equilibrium and welfare theory."
+},
+{
+    name: "Kenneth J. Arrow",
+    image: "./images/kenneth_arrow.jpg",
+    year: "1972",
+    hook: "Why fair voting is impossible.",
+    reason: "Key Discoveries:\n\t•\tArrow’s Impossibility Theorem: He proved that no voting system can perfectly aggregate individual preferences into a collective decision.\n\t•\tGeneral Equilibrium Theory: Arrow helped formalize conditions under which markets can reach equilibrium.\nImpact:\n\t•\tHis work reshaped social choice theory and political economy.\n\t•\tArrow’s insights influence economics, political science, and ethics. •••• •••• Awarded for pioneering contributions to general equilibrium and welfare economics."
+},
+{
+    name: "Robert M. Solow",
+    image: "./images/robert_solow.jpg",
+    year: "1987",
+    hook: "Why some countries grow richer.",
+    reason: "Key Discoveries:\n\t•\tSolow Growth Model: He showed that long-term economic growth depends on technological progress, not just capital accumulation.\n\t•\tRole of Productivity: He identified technology as the key driver of sustained growth.\nImpact:\n\t•\tHis model became the foundation of modern growth economics.\n\t•\tSolow’s work shaped policy debates on development and innovation. •••• •••• Awarded for contributions to the theory of economic growth."
+},
+{
+    name: "Ronald H. Coase",
+    image: "./images/ronald_coase.jpg",
+    year: "1991",
+    hook: "Why firms exist.",
+    reason: "Key Discoveries:\n\t•\tCoase Theorem: He showed that under low transaction costs, parties can negotiate efficient outcomes regardless of legal rules.\n\t•\tTheory of the Firm: Coase explained firms as a response to transaction costs in markets.\nImpact:\n\t•\tHis ideas transformed law and economics.\n\t•\tCoase influenced thinking on property rights, regulation, and institutions. •••• •••• Awarded for discovering the importance of transaction costs and property rights."
+},
+{
+    name: "Gary S. Becker",
+    image: "./images/gary_becker.jpg",
+    year: "1992",
+    hook: "Economics explains everyday life.",
+    reason: "Key Discoveries:\n\t•\tHuman Capital Theory: Becker analyzed education and skills as investments.\n\t•\tEconomic Approach to Social Behavior: He applied economic reasoning to crime, family, and discrimination.\nImpact:\n\t•\tHis work expanded economics beyond traditional markets.\n\t•\tBecker’s approach reshaped labor economics and social policy analysis. •••• •••• Awarded for extending economic analysis to human behavior."
+},
+{
+    name: "Robert E. Lucas Jr.",
+    image: "./images/robert_lucas.jpg",
+    year: "1995",
+    hook: "Expectations change everything.",
+    reason: "Key Discoveries:\n\t•\tRational Expectations: Lucas showed that people anticipate policy changes and adjust behavior accordingly.\n\t•\tLucas Critique: He demonstrated why policy evaluations ignoring expectations are unreliable.\nImpact:\n\t•\tHis work transformed macroeconomic modeling.\n\t•\tLucas reshaped how economists analyze policy effectiveness. •••• •••• Awarded for developing and applying rational expectations."
+},
+{
+    name: "Daniel Kahneman",
+    image: "./images/daniel_kahneman.jpg",
+    year: "2002",
+    hook: "Humans think in biased ways.",
+    reason: "Key Discoveries:\n\t•\tProspect Theory: Kahneman showed that people value gains and losses asymmetrically.\n\t•\tCognitive Biases: He documented systematic deviations from rational decision-making.\nImpact:\n\t•\tHis work founded behavioral economics.\n\t•\tKahneman’s insights changed economics, psychology, and public policy. •••• •••• Awarded for integrating psychological insights into economic science."
+}
+
 
   
 ];
