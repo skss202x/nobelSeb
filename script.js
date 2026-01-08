@@ -269,7 +269,8 @@ const data = [
 // YEAR SUMMARIES
 // ==================================================
 const yearSummaries = {
-    "2010": "Search frictions in labour markets",
+    "2010": "A DIAMOND-encrusted door won’t open.
+Unemployed workers (MORTally pale) slip on PISS puddles while trying to find matching keys. ••••• Search frictions in labour markets",
     "2011": "Macroeconomics, policy & expectations",
     "2012": "Stable matching & market design",
     "2013": "Efficient markets vs bubbles",
