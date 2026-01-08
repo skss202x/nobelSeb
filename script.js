@@ -29,7 +29,7 @@ const data = [
         image: "./images/christopher_sims.jpg",
         year: "2011",
         hook: "Using data to understand the economy.",
-        reason: "Key Discoveries:\n\t•\tVector Autoregression (VAR): Sims developed VAR methods that allow economists to trace how economic shocks and policy actions affect macroeconomic variables over time.\n\t•\tCausal Inference in Macroeconomics: His approach minimized reliance on restrictive models, letting data reveal dynamic relationships.\nImpact:\n\t•\tSims’ methods revolutionized empirical macroeconomics by enabling robust analysis of how policies and shocks propagate through the economy.\n\t•\tHis tools are widely used in academic and policy research to assess real‑world economic dynamics. •••• ••••
+        reason: "Key Discoveries:\n\t•\tVector Autoregression (VAR): Sims developed VAR methods that allow economists to trace how economic shocks and policy actions affect macroeconomic variables over time.\n\t•\tCausal Inference in Macroeconomics: His approach minimized reliance on restrictive models, letting data reveal dynamic relationships.\nImpact:\n\t•\tSims’ methods revolutionized empirical macroeconomics by enabling robust analysis of how policies and shocks propagate through the economy.\n\t•\tHis tools are widely used in academic and policy research to assess real‑world economic dynamics. •••• ••••"
     
             },
     {
