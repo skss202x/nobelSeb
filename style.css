@@ -1,153 +1,147 @@
-/* ===== Global Reset ===== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* =========================
+   GLOBAL THEME
+========================= */
+
+:root {
+  --bg: #0f1220;
+  --card: #1b1f3b;
+  --accent: #6cf2c2;
+  --accent2: #ff7ad9;
+  --text: #eaeaf0;
+  --muted: #9aa0c3;
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-  background: #fafafa;
-  color: #333;
-  line-height: 1.6;
-  padding: 1rem;
-}
-
-/* ===== Layout Containers ===== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #222;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* ===== Card Grid ===== */
-.cards {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 1rem;
-}
-
-/* ===== Individual Card ===== */
-.card {
-  background: white;
-  border-radius: 0.6rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1c1f40, #0f1220);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
+/* =========================
+   MAIN QUIZ CONTAINER
+========================= */
 
-.card img {
-  display: block;
+#wall {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  max-width: 420px;
+  padding: 20px;
 }
 
-/* ===== Card Details ===== */
-.card-body {
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+/* =========================
+   CARD
+========================= */
 
-.card-body h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.4rem;
-}
-
-.card-body p.hook {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 0.8rem;
-}
-
-.card-body p.reason {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  flex: 1;
-  color: #555;
-}
-
-/* ===== Bullet List Style (in Reason) ===== */
-.card-body .reason ul {
-  margin-top: 0.5rem;
-  margin-left: 1rem;
-  list-style-type: disc;
-}
-
-.card-body .reason ul li {
-  margin-bottom: 0.4rem;
-}
-
-/* ===== Buttons (if any) ===== */
-button,
-.btn {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  background: #246bb3;
-  color: #fff;
-  border: none;
-  border-radius: 0.35rem;
-  font-size: 0.95rem;
-  cursor: pointer;
+.laureate {
+  background: linear-gradient(145deg, #20245a, #15183a);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
   text-align: center;
-  transition: background 0.2s ease;
+  animation: fadeIn 0.6s ease;
+  display: none;
 }
 
-button:hover,
-.btn:hover {
-  background: #1e569b;
+.laureate.active {
+  display: block;
 }
 
-/* ===== Responsive Text ===== */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
+/* =========================
+   IMAGE
+========================= */
+
+.laureate img {
+  width: 100%;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.laureate img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(108,242,194,0.4);
+}
+
+/* =========================
+   TEXT REVEALS
+========================= */
+
+.name,
+.reason,
+.hook {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 12px;
+  display: none;
+  cursor: pointer;
+  animation: slideUp 0.4s ease;
+}
+
+/* NAME */
+.name {
+  background: rgba(108,242,194,0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* REASON */
+.reason {
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  font-size: 14px;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+/* HOOK (FINAL ANSWER FEEL) */
+.hook {
+  background: linear-gradient(135deg, #ff7ad9, #ffc371);
+  color: #1b1b1b;
+  font-weight: 700;
+}
+
+/* =========================
+   YEAR (OPTIONAL)
+========================= */
+
+.year-label {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
   }
-
-  .card-body h2 {
-    font-size: 1.25rem;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* ===== Utility Spacing ===== */
-.mt-1 { margin-top: 1rem !important; }
-.mt-2 { margin-top: 2rem !important; }
-.mb-1 { margin-bottom: 1rem !important; }
-.text-center { text-align: center !important; }
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
