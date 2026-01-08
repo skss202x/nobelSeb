@@ -346,83 +346,72 @@ const yearSummaries = {
     "2025": "MOKYR (monkey) builds ideas, AGHION (agents) destroys old firms, HOWITT (how to keeps growth ALIVE) •••••   Innovation replaces the old to grow (Innovation & creative destruction   "
 };
 
+// ==================================================
+// DATA
+// ==================================================
+// (keep your existing `data` array here)
 
-
-// ==============================
-// QUIZ STATE
-// ==============================
-let pool = [];
-let current = null;
-
+// ==================================================
+// RENDER QUIZ
+// ==================================================
 const wall = document.getElementById("wall");
 
-// ==============================
-// UTILS
-// ==============================
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+// Shuffle function to pick random laureates
+function shuffleArray(array) {
+    return array.sort(() => Math.random() - 0.5);
 }
 
-function resetPool() {
-  pool = [...data];
-  shuffle(pool);
+let shuffled = shuffleArray([...data]);
+let currentIndex = 0;
+
+function showNextLaureate() {
+    // Clear previous content
+    wall.innerHTML = "";
+
+    if (currentIndex >= shuffled.length) {
+        currentIndex = 0;
+        shuffled = shuffleArray([...data]);
+    }
+
+    const l = shuffled[currentIndex];
+    currentIndex++;
+
+    const card = document.createElement("div");
+    card.className = "laureate-quiz";
+
+    card.innerHTML = `
+        <img src="${l.image}" alt="${l.name}" class="laureate-img">
+        <p class="name" style="display:none;">${l.name}</p>
+        <p class="reason" style="display:none;">${l.reason}</p>
+        <p class="hook" style="display:none;">${l.hook}</p>
+    `;
+
+    const img = card.querySelector("img");
+    const name = card.querySelector(".name");
+    const reason = card.querySelector(".reason");
+    const hook = card.querySelector(".hook");
+
+    // Click image → show name
+    img.onclick = () => {
+        name.style.display = "block";
+    };
+
+    // Click name → show reason + hook, then next laureate
+    name.onclick = () => {
+        reason.style.display = "block";
+        hook.style.display = "block";
+
+        // small delay so user sees content before next image
+        setTimeout(showNextLaureate, 5000); // 5 seconds
+    };
+
+    wall.appendChild(card);
 }
 
-// ==============================
-// RENDER ONE CARD
-// ==============================
-function renderNext() {
-  wall.innerHTML = "";
+// Initial display
+showNextLaureate();
 
-  if (pool.length === 0) resetPool();
 
-  current = pool.pop();
 
-  const card = document.createElement("div");
-  card.className = "laureate active";
 
-  card.innerHTML = `
-    <img src="${current.image}" alt="${current.name}">
-    <div class="name">${current.name}</div>
-    <div class="reason">${current.reason}</div>
-    <div class="hook">${current.hook}</div>
-  `;
 
-  const img = card.querySelector("img");
-  const name = card.querySelector(".name");
-  const reason = card.querySelector(".reason");
-  const hook = card.querySelector(".hook");
-
-  // INITIAL STATE
-  name.style.display = "none";
-  reason.style.display = "none";
-  hook.style.display = "none";
-
-  // STEP 1: CLICK IMAGE → NAME + REASON
-  img.onclick = () => {
-    name.style.display = "block";
-    reason.style.display = "block";
-  };
-
-  // STEP 2: CLICK NAME OR REASON → HOOK
-  const revealHook = () => {
-    hook.style.display = "block";
-
-    // STEP 3: AUTO LOAD NEXT CARD
-    setTimeout(renderNext, 1200);
-  };
-
-  name.onclick = revealHook;
-  reason.onclick = revealHook;
-
-  wall.appendChild(card);
-}
-
-// ==============================
-// INIT
-// ==============================
-resetPool();
-renderNext();
