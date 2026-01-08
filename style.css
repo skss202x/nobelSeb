@@ -1,192 +1,105 @@
-/* =========================
-   RESET & VARIABLES
-========================= */
-
-:root {
-  --bg: #f6f7fb;
-  --card: #ffffff;
-  --accent: #a5b4fc;     /* pastel indigo */
-  --accent2: #fbcfe8;    /* pastel pink */
-  --accent3: #bbf7d0;    /* pastel green */
-  --text: #1f2937;
-  --muted: #6b7280;
-}
-
+/* ===========================
+   RESET & BASE STYLES
+   =========================== */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #f6f7fb, #eef2ff);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background: #f7f1f8; /* pastel background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* =========================
-   HEADER (TOP)
-========================= */
-
+/* ===========================
+   HEADER
+   =========================== */
 header {
-  width: 100%;
-  padding: 16px 20px;
-  text-align: center;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  color: #1f2937;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: #6a4c93;
 }
 
-header h1 {
-  margin: 0;
-  font-size: clamp(20px, 5vw, 28px);
-  font-weight: 700;
+/* ===========================
+   QUIZ LAUREATE CARD
+   =========================== */
+.laureate-quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
-header p {
-  margin: 6px 0 0;
-  font-size: 14px;
-  color: #374151;
+.laureate-img {
+    max-width: 300px;      /* limit image width */
+    width: 90vw;           /* responsive for mobile */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* =========================
-   QUIZ CONTAINER (CENTER)
-========================= */
-
-#wall {
-  flex: 1;
-  width: 100%;
-  max-width: 420px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+.laureate-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 
-/* =========================
-   CARD
-========================= */
-
-.laureate {
-  width: 100%;
-  background: var(--card);
-  border-radius: 22px;
-  padding: 18px;
-  box-shadow:
-    0 20px 35px rgba(0,0,0,0.08),
-    inset 0 0 0 1px rgba(0,0,0,0.03);
-  text-align: center;
-  display: none;
-  animation: popIn 0.4s ease;
+/* ===========================
+   NAME, REASON, HOOK
+   =========================== */
+.name, .reason, .hook {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    line-height: 1.5;
+    font-size: 1em;
+    background: #ffffff;
+    color: #444;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.laureate.active {
-  display: block;
+.name:hover, .reason:hover, .hook:hover {
+    background: #f0e6f7;  /* light pastel highlight on hover */
 }
 
-/* =========================
-   IMAGE
-========================= */
-
-.laureate img {
-  width: 100%;
-  max-height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+    .laureate-img {
+        max-width: 250px;
+    }
+    .name, .reason, .hook {
+        font-size: 0.95em;
+        padding: 8px 16px;
+    }
 }
-
-.laureate img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 0 4px var(--accent3);
-}
-
-/* =========================
-   TEXT REVEALS
-========================= */
-
-.name,
-.reason,
-.hook {
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  display: none;
-  cursor: pointer;
-  animation: fadeUp 0.35s ease;
-}
-
-/* NAME */
-.name {
-  background: var(--accent);
-  color: #1e1b4b;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-/* REASON */
-.reason {
-  background: #f1f5f9;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #334155;
-  text-align: left;
-  white-space: pre-wrap;
-}
-
-/* HOOK */
-.hook {
-  background: linear-gradient(135deg, var(--accent2), var(--accent3));
-  font-weight: 700;
-  font-size: 15px;
-  color: #1f2937;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   MOBILE TWEAKS
-========================= */
 
 @media (max-width: 480px) {
-  .laureate {
-    padding: 14px;
-  }
-
-  .laureate img {
-    max-height: 220px;
-  }
-
-  .reason {
-    font-size: 13px;
-  }
+    .laureate-img {
+        max-width: 200px;
+    }
+    .name, .reason, .hook {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
 }
