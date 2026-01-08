@@ -1,271 +1,306 @@
-
-
-
-// --------------------------
-// DATA (example – keep your full list)
-// --------------------------
-
+// ==================================================
+// DATA
+// ==================================================
 const data = [
-    { 
+    {
         name: "Peter A. Diamond",
         image: "./images/peter_diamond.jpg",
         year: "2010",
         hook: "Explaining why jobs take time to find.",
         reason: "Awarded for analyzing markets where workers search for jobs and employers search for workers, showing that matching frictions cause unemployment even when jobs exist."
     },
-    { 
+    {
         name: "Dale T. Mortensen",
         image: "./images/dale_mortensen.jpg",
         year: "2010",
         hook: "Jobs are constantly changing.",
         reason: "Recognized for his work on labor market dynamics, especially how jobs are continuously created and destroyed and how that affects unemployment."
     },
-    { 
+    {
         name: "Christopher A. Pissarides",
         image: "./images/christopher_pissarides.jpg",
         year: "2010",
         hook: "Matching workers to jobs better.",
         reason: "Shared the prize for developing models that explain how job seekers and vacancies match up, which helps explain persistent unemployment."
     },
-    { 
+
+    {
         name: "Thomas J. Sargent",
         image: "./images/thomas_sargent.jpg",
         year: "2011",
         hook: "Learning from history to improve policy.",
         reason: "Awarded for empirical research on how economic policies and expectations about policy affect inflation and employment."
     },
-    { 
+    {
         name: "Christopher A. Sims",
         image: "./images/christopher_sims.jpg",
         year: "2011",
         hook: "Using data to understand the economy.",
         reason: "Shared the 2011 prize for developing statistical tools that help economists analyze how policy decisions influence the economy using real-world data."
     },
-    { 
+
+    {
         name: "Alvin E. Roth",
         image: "./images/alvin_roth.jpg",
         year: "2012",
         hook: "Designing better markets.",
         reason: "Recognized for applying matching theory to real-world problems like school placements and kidney exchanges to improve how participants are paired."
     },
-    { 
+    {
         name: "Lloyd S. Shapley",
         image: "./images/lloyd_shapley.jpg",
         year: "2012",
         hook: "Mathematics that makes markets fairer.",
         reason: "Awarded for foundational theory on how to fairly match participants in markets and games, laying the groundwork for efficient market design."
     },
-    { 
+
+    {
         name: "Eugene F. Fama",
         image: "./images/eugene_fama.jpg",
         year: "2013",
         hook: "Markets quickly reflect information.",
         reason: "Won for showing how financial markets incorporate information into prices, a concept known as the efficient market hypothesis."
     },
-    { 
+    {
         name: "Lars Peter Hansen",
         image: "./images/lars_hansen.jpg",
         year: "2013",
         hook: "Measuring risk in financial markets.",
         reason: "Recognized for developing statistical methods that help test how well economic and financial models explain real-world data."
     },
-    { 
+    {
         name: "Robert J. Shiller",
         image: "./images/robert_shiller.jpg",
         year: "2013",
         hook: "Understanding market ups and downs.",
         reason: "Awarded for showing how psychological factors and bubbles can make markets fluctuate beyond what traditional fundamentals predict."
     },
-    { 
+
+    {
         name: "Jean Tirole",
         image: "./images/jean_tirole.jpg",
         year: "2014",
         hook: "Balancing power in the market.",
         reason: "Won for creating frameworks to understand and regulate industries dominated by a few powerful firms."
     },
-    { 
+
+    {
         name: "Angus S. Deaton",
         image: "./images/angus_deaton.jpg",
         year: "2015",
         hook: "Understanding how people live.",
         reason: "Awarded for improving how economists use household data to understand consumption, poverty, and welfare."
     },
-    { 
+
+    {
         name: "Oliver Hart",
         image: "./images/oliver_hart.jpg",
         year: "2016",
         hook: "Why contracts matter.",
         reason: "Recognized for explaining how incomplete contracts affect businesses, ownership, and incentives."
     },
-    { 
+    {
         name: "Bengt Holmström",
         image: "./images/bengt_holmstrom.jpg",
         year: "2016",
         hook: "Incentives shape decisions.",
         reason: "Shared the 2016 prize for analyzing how contracts and incentives can be designed to motivate better performance."
     },
-    { 
+
+    {
         name: "Richard H. Thaler",
         image: "./images/richard_thaler.jpg",
         year: "2017",
         hook: "Humans don’t always act rationally.",
         reason: "Awarded for pioneering behavioral economics, showing how psychological biases influence economic decisions."
     },
-    { 
+
+    {
         name: "William D. Nordhaus",
         image: "./images/william_nordhaus.jpg",
         year: "2018",
         hook: "Economics meets climate change.",
-        reason: "Won for integrating climate change into long-term economic analysis to understand the costs and benefits of environmental policy."
+        reason: "Won for integrating climate change into long-term economic analysis."
     },
-    { 
+    {
         name: "Paul M. Romer",
         image: "./images/paul_romer.jpg",
         year: "2018",
         hook: "Ideas drive growth.",
-        reason: "Shared the 2018 prize for showing how technological innovation and ideas fuel long-term economic growth."
+        reason: "Shared the 2018 prize for showing how innovation fuels long-term economic growth."
     },
-    { 
+
+    {
         name: "Abhijit Banerjee",
         image: "./images/abhijit_banerjee.jpg",
         year: "2019",
-        hook: "Testing what works in the real world.",
-        reason: "Recognized for using randomized controlled trials to evaluate how policies affect poverty and development."
+        hook: "Testing what works.",
+        reason: "Recognized for using randomized controlled trials to evaluate anti-poverty policies."
     },
-    { 
+    {
         name: "Esther Duflo",
         image: "./images/esther_duflo.jpg",
         year: "2019",
         hook: "Experiments to fight poverty.",
-        reason: "Shared the 2019 prize for innovative field experiments that identify effective anti-poverty policies."
+        reason: "Shared the prize for innovative field experiments."
     },
-    { 
+    {
         name: "Michael Kremer",
         image: "./images/michael_kremer.jpg",
         year: "2019",
-        hook: "Scalable evidence on poverty.",
-        reason: "Awarded for helping design experimental methods to test real-world development interventions at scale."
+        hook: "Scalable evidence.",
+        reason: "Awarded for designing experimental methods at scale."
     },
-    { 
+
+    {
         name: "Paul R. Milgrom",
         image: "./images/paul_milgrom.jpg",
         year: "2020",
-        hook: "Better auctions for modern markets.",
-        reason: "Recognized for improving auction theory and designing auction formats used worldwide."
+        hook: "Better auctions.",
+        reason: "Recognized for improving auction theory."
     },
-    { 
+    {
         name: "Robert B. Wilson",
         image: "./images/robert_wilson.jpg",
         year: "2020",
-        hook: "Understanding bidding strategies.",
-        reason: "Shared the 2020 prize for explaining how people strategize in auctions with incomplete information."
+        hook: "Bidding strategies.",
+        reason: "Shared the prize for explaining bidding under uncertainty."
     },
-    { 
+
+    {
         name: "David Card",
         image: "./images/david_card.jpg",
         year: "2021",
         hook: "Real-world labor insights.",
-        reason: "Awarded for using natural experiments to better understand labor markets and the effects of policy."
+        reason: "Awarded for natural experiments in labor economics."
     },
-    { 
+    {
         name: "Joshua D. Angrist",
         image: "./images/joshua_angrist.jpg",
         year: "2021",
-        hook: "Causal relationships in economics.",
-        reason: "Recognized for advancing methods that help economists identify cause-and-effect in observational data."
+        hook: "Causal methods.",
+        reason: "Recognized for causal inference methods."
     },
-    { 
+    {
         name: "Guido W. Imbens",
         image: "./images/guido_imbens.jpg",
         year: "2021",
-        hook: "Making causation measurable.",
-        reason: "Shared the 2021 prize for frameworks that strengthen causal conclusions in empirical research."
+        hook: "Measuring causality.",
+        reason: "Shared the prize for strengthening causal conclusions."
     },
-    { 
+
+    {
         name: "Ben S. Bernanke",
         image: "./images/ben_bernanke.jpg",
         year: "2022",
         hook: "Why banks matter.",
-        reason: "Awarded for analyzing how bank failures deepen recessions and how policy can mitigate financial crises."
+        reason: "Awarded for analyzing banking crises."
     },
-    { 
+    {
         name: "Douglas W. Diamond",
         image: "./images/douglas_diamond.jpg",
         year: "2022",
-        hook: "Banks transform money.",
-        reason: "Recognized for explaining why banks exist and how they provide liquidity by transforming short-term deposits into long-term loans."
+        hook: "Liquidity creation.",
+        reason: "Recognized for explaining why banks exist."
     },
-    { 
+    {
         name: "Philip H. Dybvig",
         image: "./images/philip_dybvig.jpg",
         year: "2022",
         hook: "Why bank runs happen.",
-        reason: "Shared the 2022 prize for models showing how bank runs occur and why deposit insurance stabilizes banking."
+        reason: "Shared the prize for models of bank runs."
     },
-    { 
+
+    {
         name: "Claudia Goldin",
         image: "./images/claudia_goldin.jpg",
         year: "2023",
-        hook: "Tracing women’s work history.",
-        reason: "Awarded for her comprehensive historical analysis of women’s labor market outcomes and gender pay gaps. :contentReference[oaicite:1]{index=1}"
+        hook: "Women’s work history.",
+        reason: "Awarded for analyzing gender gaps in labor markets."
     },
-    { 
+
+    {
         name: "Daron Acemoglu",
         image: "./images/daron_acemoglu.jpg",
         year: "2024",
         hook: "Institutions shape prosperity.",
-        reason: "Recognized for studies showing how economic and political institutions influence long-run national prosperity and inequity. :contentReference[oaicite:2]{index=2}"
+        reason: "Recognized for studies on institutions."
     },
-    { 
+    {
         name: "Simon Johnson",
         image: "./images/simon_johnson.jpg",
         year: "2024",
-        hook: "Power, elites and prosperity.",
-        reason: "Awarded for research on how elite power structures and institutional choices shape economic development. :contentReference[oaicite:3]{index=3}"
+        hook: "Power and elites.",
+        reason: "Awarded for research on elite power."
     },
-    { 
+    {
         name: "James A. Robinson",
         image: "./images/james_robinson.jpg",
         year: "2024",
         hook: "Paths to prosperity.",
-        reason: "Recognized for showing how historical institutional differences lead to divergent economic outcomes across nations. :contentReference[oaicite:4]{index=4}"
+        reason: "Shared the prize for institutional analysis."
     },
-    { 
+
+    {
         name: "Joel Mokyr",
         image: "./images/joel_mokyr.jpg",
         year: "2025",
-        hook: "Why growth becomes sustained.",
-        reason: "Awarded for identifying the conditions that allow technological progress to drive long-term economic growth. :contentReference[oaicite:5]{index=5}"
+        hook: "Sustained growth.",
+        reason: "Awarded for explaining long-term technological progress."
     },
-    { 
+    {
         name: "Philippe Aghion",
         image: "./images/philippe_aghion.jpg",
         year: "2025",
-        hook: "Creative destruction theory.",
-        reason: "Recognized for the theory of sustained growth through creative destruction, showing how innovation replaces old products with new ones. :contentReference[oaicite:6]{index=6}"
+        hook: "Creative destruction.",
+        reason: "Recognized for growth theory."
     },
-    { 
+    {
         name: "Peter Howitt",
         image: "./images/peter_howitt.jpg",
         year: "2025",
-        hook: "Explaining how economies reinvent.",
-        reason: "Shared the 2025 prize for explaining how the process of new technologies replacing old ones fuels continuous economic growth. :contentReference[oaicite:7]{index=7}"
+        hook: "Economic reinvention.",
+        reason: "Shared the prize for innovation theory."
     }
 ];
 
 
-// --------------------------
+// ==================================================
+// YEAR SUMMARIES
+// ==================================================
+const yearSummaries = {
+    "2010": "Search frictions in labour markets",
+    "2011": "Macroeconomics, policy & expectations",
+    "2012": "Stable matching & market design",
+    "2013": "Efficient markets vs bubbles",
+    "2014": "Regulating market power",
+    "2015": "Consumption, poverty & welfare",
+    "2016": "Contract theory & incentives",
+    "2017": "Behavioral economics",
+    "2018": "Climate change & innovation",
+    "2019": "Field experiments in development",
+    "2020": "Auction theory & design",
+    "2021": "Causal inference in economics",
+    "2022": "Banking crises & financial stability",
+    "2023": "Gender gaps in labor markets",
+    "2024": "Institutions determine prosperity",
+    "2025": "Innovation & creative destruction"
+};
+
+
+// ==================================================
 // GROUP BY YEAR
-// --------------------------
+// ==================================================
 const grouped = {};
-data.forEach(l => {
-    if (!grouped[l.year]) grouped[l.year] = [];
-    grouped[l.year].push(l);
+data.forEach(item => {
+    if (!grouped[item.year]) grouped[item.year] = [];
+    grouped[item.year].push(item);
 });
 
-// --------------------------
+
+// ==================================================
 // RENDER
-// --------------------------
+// ==================================================
 const wall = document.getElementById("wall");
 
 Object.keys(grouped).sort().forEach(year => {
@@ -280,7 +315,7 @@ Object.keys(grouped).sort().forEach(year => {
     const cards = document.createElement("div");
     cards.className = "year-cards";
 
-    let completedCount = 0;
+    let revealed = 0;
 
     grouped[year].forEach(l => {
 
@@ -303,177 +338,19 @@ Object.keys(grouped).sort().forEach(year => {
         name.onclick = () => reason.style.display = "block";
         reason.onclick = () => {
             hook.style.display = "block";
-            completedCount++;
-            checkYearComplete();
+            revealed++;
+            if (revealed === grouped[year].length) {
+                yearBox.style.display = "block";
+            }
         };
 
         cards.appendChild(card);
     });
 
-    // YEAR TEXTBOX (hidden initially)
-    const yearBox = document.createElement("div");
-    yearBox.className = "year-textbox";
-    yearBox.textContent = "👉 Add your year summary text here.";
-
-    function checkYearComplete() {
-        if (completedCount === grouped[year].length) {
-            yearBox.style.display = "block";
-        }
-    }
-
-    section.appendChild(label);
-    section.appendChild(cards);
-    section.appendChild(yearBox);
-    wall.appendChild(section);
-});
-
-
-
-// --------------------------
-// YEAR SUMMARIES
-// --------------------------
-const yearSummaries = {
-    "2010": `
-        <strong>Diamond, Mortensen, Pissarides (Search & Unemployment)</strong><br><br>
-        <em>Scene:</em><br>
-        A DIAMOND-encrusted door won’t open.<br>
-        Unemployed workers (MORTally pale) slip on PISS puddles while trying to find matching keys.<br><br>
-        • Diamond = hard matching<br>
-        • Mortensen = unemployment pain<br>
-        • Pissarides = job search frustration<br><br>
-        👉 <strong>Search frictions in labour markets</strong>
-    `,
-
-    "2011": `
-        <strong>Sargent & Sims</strong><br><br>
-        <em>Scene:</em><br>
-        A SERGEANT shouts economic orders.<br>
-        A giant computer SIMS different futures labeled “EXPECTATIONS”.<br><br>
-        👉 <strong>Policy + expectations + causal macro</strong>
-    `,
-
-    "2012": `
-        <strong>Roth & Shapley</strong><br><br>
-        <em>Scene:</em><br>
-        A wedding hall where ROTH rearranges couples until every pair fits into SHAPED puzzle slots.<br><br>
-        👉 <strong>Stable matching & market design</strong>
-    `,
-
-    "2013": `
-        <strong>Fama, Hansen, Shiller</strong><br><br>
-        <em>Scene:</em><br>
-        A stock market arena:<br>
-        • FAMA shouts “Markets are PERFECT!”<br>
-        • SHILLER throws bubble balloons<br>
-        • HANSEN measures both with a ruler<br><br>
-        👉 <strong>Efficient markets vs bubbles, statistically tested</strong>
-    `,
-
-    "2014": `
-        <strong>Tirole</strong><br><br>
-        <em>Scene:</em><br>
-        A monopoly monster tied up with a TI-ROLE leash.<br><br>
-        👉 <strong>Regulating market power</strong>
-    `,
-
-    "2015": `
-        <strong>Deaton</strong><br><br>
-        <em>Scene:</em><br>
-        A dining table labeled “WELFARE”.<br>
-        DEATON weighs food plates and shopping baskets.<br><br>
-        👉 <strong>Consumption reveals wellbeing & poverty</strong>
-    `,
-
-    "2016": `
-        <strong>Hart & Holmström</strong><br><br>
-        <em>Scene:</em><br>
-        A glowing HEART signs a contract tightened by a steel HOLM lock.<br><br>
-        👉 <strong>Contract theory & incentives</strong>
-    `,
-
-    "2017": `
-        <strong>Thaler</strong><br><br>
-        <em>Scene:</em><br>
-        People make silly financial choices while THALER nudges them.<br><br>
-        👉 <strong>Behavioral economics</strong>
-    `,
-
-    "2018": `
-        <strong>Nordhaus & Romer</strong><br><br>
-        <em>Scene:</em><br>
-        • A melting NORTH POLE house floods the floor<br>
-        • ROMER fuels an idea factory<br><br>
-        👉 <strong>Climate + innovation drive growth</strong>
-    `,
-
-    "2019": `
-        <strong>Banerjee, Duflo, Kremer</strong><br><br>
-        <em>Scene:</em><br>
-        A poverty lab:<br>
-        • BAN hammer smashing poverty<br>
-        • DUFLO running experiments<br>
-        • KREMER stamps “RCT APPROVED”<br><br>
-        👉 <strong>Field experiments in development</strong>
-    `,
-
-    "2020": `
-        <strong>Milgrom & Wilson</strong><br><br>
-        <em>Scene:</em><br>
-        An auction hall where bids fly and MIL-GRAM weights balance prices.<br><br>
-        👉 <strong>Auction theory & design</strong>
-    `,
-
-    "2021": `
-        <strong>Card, Angrist, Imbens</strong><br><br>
-        <em>Scene:</em><br>
-        A science lab testing policy shocks and causal stamps.<br><br>
-        👉 <strong>Natural experiments & causal inference</strong>
-    `,
-
-    "2022": `
-        <strong>Bernanke, Diamond, Dybvig</strong><br><br>
-        <em>Scene:</em><br>
-        A bank run chaos — vaults crack, cash slips, panic spreads.<br>
-        BERNANKE arrives with a fire extinguisher.<br><br>
-        👉 <strong>Banking crises & financial stability</strong>
-    `,
-
-    "2023": `
-        <strong>Goldin</strong><br><br>
-        <em>Scene:</em><br>
-        A hallway of women’s work history ending in uneven GOLD bars.<br><br>
-        👉 <strong>Gender gaps in labour markets</strong>
-    `,
-
-    "2024": `
-        <strong>Acemoglu, Johnson, Robinson</strong><br><br>
-        <em>Scene:</em><br>
-        A nation-building game flipping countries between paths.<br><br>
-        👉 <strong>Institutions determine prosperity</strong>
-    `,
-
-    "2025": `
-        <strong>Mokyr, Aghion, Howitt</strong><br><br>
-        <em>Scene:</em><br>
-        A roaring innovation machine smashing old firms and creating new ideas.<br><br>
-        👉 <strong>Innovation & creative destruction</strong>
-    `
-};
-
-
-
-
-    // YEAR TEXTBOX
     const yearBox = document.createElement("div");
     yearBox.className = "year-textbox";
     yearBox.style.display = "none";
-    yearBox.innerHTML = yearSummaries[year] || "";
-
-    function checkYearComplete() {
-        if (completedCount === grouped[year].length) {
-            yearBox.style.display = "block";
-        }
-    }
+    yearBox.textContent = yearSummaries[year] || "";
 
     section.appendChild(label);
     section.appendChild(cards);
