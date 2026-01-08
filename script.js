@@ -275,72 +275,82 @@ const yearSummaries = {
 };
 
 
-// ==================================================
-// GROUP BY YEAR
-// ==================================================
-const grouped = {};
-data.forEach(item => {
-    if (!grouped[item.year]) grouped[item.year] = [];
-    grouped[item.year].push(item);
-});
 
+// ==============================
+// QUIZ STATE
+// ==============================
+let pool = [];
+let current = null;
 
-// ==================================================
-// RENDER
-// ==================================================
 const wall = document.getElementById("wall");
 
-Object.keys(grouped).sort().forEach(year => {
+// ==============================
+// UTILS
+// ==============================
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-    const section = document.createElement("section");
-    section.className = "year-section";
+function resetPool() {
+  pool = [...data];
+  shuffle(pool);
+}
 
-    const label = document.createElement("h2");
-    label.className = "year-label";
-    label.textContent = year;
+// ==============================
+// RENDER ONE CARD
+// ==============================
+function renderNext() {
+  wall.innerHTML = "";
 
-    const cards = document.createElement("div");
-    cards.className = "year-cards";
+  if (pool.length === 0) resetPool();
 
-    let revealed = 0;
+  current = pool.pop();
 
-    grouped[year].forEach(l => {
+  const card = document.createElement("div");
+  card.className = "laureate active";
 
-        const card = document.createElement("div");
-        card.className = "laureate";
+  card.innerHTML = `
+    <img src="${current.image}" alt="${current.name}">
+    <div class="name">${current.name}</div>
+    <div class="reason">${current.reason}</div>
+    <div class="hook">${current.hook}</div>
+  `;
 
-        card.innerHTML = `
-            <img src="${l.image}" alt="${l.name}">
-            <p class="name">${l.name}</p>
-            <p class="reason">${l.reason}</p>
-            <p class="hook">${l.hook}</p>
-        `;
+  const img = card.querySelector("img");
+  const name = card.querySelector(".name");
+  const reason = card.querySelector(".reason");
+  const hook = card.querySelector(".hook");
 
-        const img = card.querySelector("img");
-        const name = card.querySelector(".name");
-        const reason = card.querySelector(".reason");
-        const hook = card.querySelector(".hook");
+  // INITIAL STATE
+  name.style.display = "none";
+  reason.style.display = "none";
+  hook.style.display = "none";
 
-        img.onclick = () => name.style.display = "block";
-        name.onclick = () => reason.style.display = "block";
-        reason.onclick = () => {
-            hook.style.display = "block";
-            revealed++;
-            if (revealed === grouped[year].length) {
-                yearBox.style.display = "block";
-            }
-        };
+  // STEP 1: CLICK IMAGE → NAME + REASON
+  img.onclick = () => {
+    name.style.display = "block";
+    reason.style.display = "block";
+  };
 
-        cards.appendChild(card);
-    });
+  // STEP 2: CLICK NAME OR REASON → HOOK
+  const revealHook = () => {
+    hook.style.display = "block";
 
-    const yearBox = document.createElement("div");
-    yearBox.className = "year-textbox";
-    yearBox.style.display = "none";
-    yearBox.textContent = yearSummaries[year] || "";
+    // STEP 3: AUTO LOAD NEXT CARD
+    setTimeout(renderNext, 1200);
+  };
 
-    section.appendChild(label);
-    section.appendChild(cards);
-    section.appendChild(yearBox);
-    wall.appendChild(section);
-});
+  name.onclick = revealHook;
+  reason.onclick = revealHook;
+
+  wall.appendChild(card);
+}
+
+// ==============================
+// INIT
+// ==============================
+resetPool();
+renderNext();
