@@ -1,6 +1,3 @@
-
-
-
 // ==================================================
 // DATA
 // ==================================================
@@ -320,10 +317,7 @@ const data = [
     year: "2002",
     hook: "Humans think in biased ways.",
     reason: "Key Discoveries:\n\t•\tProspect Theory: Kahneman showed that people value gains and losses asymmetrically.\n\t•\tCognitive Biases: He documented systematic deviations from rational decision-making.\nImpact:\n\t•\tHis work founded behavioral economics.\n\t•\tKahneman’s insights changed economics, psychology, and public policy. •••• •••• Awarded for integrating psychological insights into economic science."
-}
-
-
-  
+} 
 ];
 
 
@@ -390,7 +384,7 @@ let currentIndex = 0;
 let stage = 0; // 0=image, 1=name, 2=reason+hook
 
 function showLaureate(index) {
-    const laureate = laureates[index];
+    const laureate = data[index];
     img.src = laureate.image;
     nameEl.textContent = laureate.name;
     reasonEl.textContent = laureate.reason;
@@ -412,7 +406,6 @@ img.addEventListener('click', () => {
         hintEl.textContent = 'Click the name to see reason and hook!';
         stage = 1;
     } else if (stage === 2) {
-        // Move to next laureate
         nextLaureate();
     }
 });
@@ -436,15 +429,16 @@ hookEl.addEventListener('click', () => {
 function nextLaureate() {
     let nextIndex;
     do {
-        nextIndex = Math.floor(Math.random() * laureates.length);
-    } while (nextIndex === currentIndex); // avoid same twice
+        nextIndex = Math.floor(Math.random() * data.length);
+    } while (nextIndex === currentIndex);
     currentIndex = nextIndex;
     showLaureate(currentIndex);
 }
 
+// ==========================
+// Cards Section
+// ==========================
 document.addEventListener("DOMContentLoaded", () => {
-  const wall = document.getElementById("wall");
-
   data.forEach(item => {
     const card = document.createElement("div");
     card.className = "card";
@@ -453,11 +447,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <h3>${item.name}</h3>
     `;
     card.addEventListener("click", () => {
-      alert(item.description);
+      alert(item.reason); // show reason on click
     });
     wall.appendChild(card);
   });
-});
 
-// Initialize first laureate
-showLaureate(currentIndex);
+  // Initialize first laureate
+  showLaureate(currentIndex);
+});
